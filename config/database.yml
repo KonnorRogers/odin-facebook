@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # Run sudo -u postgres -i if you have not setup postgres before
+  username: postgres
+  password:
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: odin-facebook_development
+
+test:
+  <<: *default
+  database: odin-facebook_test
+
+production:
+  <<: *default
+  database: odin-facebook_production
+  username: odin-facebook
+  password: <%= ENV['ODIN-FACEBOOK_DATABASE_PASSWORD'] %>
