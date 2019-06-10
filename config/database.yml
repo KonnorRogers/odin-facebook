@@ -2,11 +2,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   # Run sudo -u postgres -i if you have not setup postgres before
-  username: postgres
   pool: 5
   timeout: 5000
-  port: 5432
-  password: <%= ENV.fetch("PGPASSWORD") %>
+  username: postgres
+  password:
 
 development:
   <<: *default
@@ -15,11 +14,11 @@ development:
 
 test:
   <<: *default
-  database: odin-facebook_test
   host: localhost
+  database: odin-facebook_test
 
 production:
   <<: *default
   database: odin-facebook_production
   username: odin-facebook
-  <%# password: <%= ENV['ODIN-FACEBOOK_DATABASE_PASSWORD'] %1> %>
+  password: <%= ENV['ODIN-FACEBOOK_DATABASE_PASSWORD'] %>
