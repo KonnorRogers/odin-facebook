@@ -3,7 +3,6 @@ default: &default
   encoding: unicode
   # Run sudo -u postgres -i if you have not setup postgres before
   username: postgres
-  host: ''
   pool: 5
   timeout: 5000
   port: 5432
@@ -12,10 +11,12 @@ default: &default
 development:
   <<: *default
   database: odin-facebook_development
+  host: localhost
 
 test:
   <<: *default
   database: odin-facebook_test
+  host: localhost
 
 production:
   <<: *default
