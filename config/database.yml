@@ -4,20 +4,19 @@ default: &default
   # Run sudo -u postgres -i if you have not setup postgres before
   pool: 5
   timeout: 5000
+  password: <%= ENV.fetch("PGPASSWORD") || '' %>
 
 development:
   <<: *default
   database: odin-facebook_development
   host: localhost
   username: postgres
-  password: <%= ENV.fetch("PGPASSWORD") %>
 
 test:
   <<: *default
   database: odin-facebook_test
   host: localhost
   username: postgres
-  password: <%= ENV.fetch("PGPASSWORD") %>
 
 production:
   <<: *default
