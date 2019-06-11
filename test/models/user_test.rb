@@ -7,4 +7,11 @@ class UserTest < ActiveSupport::TestCase
                      password: 'foobar',
                      password_confirmation: 'foobar')
   end
+
+  test 'should not validate any emails' do
+    assert_no_difference 'User.count' do
+      @user.email = ''
+      @user.save
+    end
+  end
 end
