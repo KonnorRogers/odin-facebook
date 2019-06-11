@@ -5,12 +5,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.2'
 
-gem 'dotenv-rails', require: 'dotenv/rails-now',
-                    groups: %i[development test] # .env file support
-
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'coffee-rails', '~> 4.2'
 gem 'devise' # authentication
+gem 'dotenv-rails', require: 'dotenv/rails-now', groups: %i[test development]
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
