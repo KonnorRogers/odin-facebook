@@ -1,2 +1,7 @@
 You are home!
 
+<% if user_signed_in? %>
+<% else %>
+  <%= render 'login_form' %>
+  <%= render 'signup_form' %>
+<% end %>
