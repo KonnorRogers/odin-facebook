@@ -4,7 +4,10 @@
   <li><%= link_to "Logout", "#" %></li>
 </ul>
 <% else %>
-  <%= render 'layouts/login_form' %>
+  <div class='login-container'>
+    <h1 class="title"> ParamagicBook </h1>
+    <%= render 'layouts/login_form' %>
+  </div>
 <% end %>
 
 
