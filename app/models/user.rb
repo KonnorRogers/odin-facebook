@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -12,8 +14,12 @@ class User < ApplicationRecord
   #                   format: { with: VALID_EMAIL_REGEX },
   #                   uniqueness: { case_sensitive: false }
 
-  validates :first_name, presence: true, length: { maximum: 50 }
-  validates :last_name, presence: true, length: { maximum: 50 }
+  VALID_NAME_REGEXP = /\A[A-Za-z]+\z/.freeze
+  %i[first_name last_name].each do |attr|
+    validates attr, presence: true,
+                    length: { maximum: 50 },
+                    format: { with: VALID_NAME_REGEXP }
+  end
 
   def full_name
     "#{first_name} #{last_name}"
