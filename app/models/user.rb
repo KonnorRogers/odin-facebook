@@ -5,6 +5,11 @@ class User < ApplicationRecord
                     length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :name, presence: true, length: { maximum: 50 }
-  # validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
+  validates :first_name, presence: true, length: { maximum: 50 }
+  validates :last_name, presence: true, length: { maximum: 50 }
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
