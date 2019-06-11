@@ -7,9 +7,12 @@ ruby '2.6.2'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'coffee-rails', '~> 4.2'
-gem 'devise' # authentication
-gem 'dotenv-rails', require: 'dotenv/rails-now', groups: %i[test development]
+gem 'devise', '~> 4.6' # authentication
+gem 'dotenv-rails', '~> 2.7',
+    require: 'dotenv/rails-now',
+    groups: %i[test development]
 gem 'jbuilder', '~> 2.5'
+gem 'normalize-rails', '~> 4.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
