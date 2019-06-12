@@ -2,12 +2,12 @@
   <%= render 'shared/error_messages', object: f.object %>
 
   <div class="signup-selection">
-    <%= f.label :first_name, class: 'signup-label' %>
+    <%= f.label :first_name, class: 'signup-label first_name' %>
     <%= f.text_field :first_name, class: 'signup-field' %>
   </div>
 
   <div class="signup-selection">
-    <%= f.label :last_name %>
+    <%= f.label :last_name, class: 'signup-label last_name' %>
     <%= f.text_field :last_name, class: 'signup-field'%>
   </div>
 
@@ -28,5 +28,5 @@
 
   <div>
     <%= f.submit "Signup", class: "btn btn-blue" %>
-  </div>
+  <div>
 <% end %>

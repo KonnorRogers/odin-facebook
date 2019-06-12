@@ -73,16 +73,23 @@ h1.title {
 
 .signup-form {
   display: flex;
-  float: right;
+  width: 50%;
+  // float: right;
   justify-content: right;
   flex-wrap: wrap;
   text-align: right;
+  margin: auto;
 }
 
 .signup-form > div {
   text-align: right;
   flex-direction: column;
   width: 100%;
+  padding: 0.5rem;
+}
+
+.signup-label.first_name .signup-label.last_name {
+
 }
 
 .signup-selection {
@@ -90,6 +97,6 @@ h1.title {
 
 
 .signup-label {
-  
+  text-align: left;
 }
 
