@@ -1,11 +1,28 @@
 // colors
 
-$light-purple: #745296;
+$dark-purple: #745296;
+$light-purple: #bd93f9;
+
+// universal
+
+.btn {
+  box-shadow: none;
+  padding: 0.4rem;
+  border: 0.25px solid black;
+}
+
+.btn-purple {
+  color: white;
+  background-color: $light-purple;
+  &:hover {
+    background-color: blueviolet;
+  }
+}
 
 /* login */
 
 .login-container {
-  background-color: $light-purple;
+  background-color: $dark-purple;
   width: 100%;
   height: 5.5rem;
   display: flex;
@@ -47,4 +64,32 @@ h1.title {
 .login-field {
   padding-right: 1rem;
   margin-right: 1rem;
+  padding: 0.25rem;
+  border: none;
 }
+
+
+// signup
+
+.signup-form {
+  display: flex;
+  float: right;
+  justify-content: right;
+  flex-wrap: wrap;
+  text-align: right;
+}
+
+.signup-form > div {
+  text-align: right;
+  flex-direction: column;
+  width: 100%;
+}
+
+.signup-selection {
+}
+
+
+.signup-label {
+  
+}
+
