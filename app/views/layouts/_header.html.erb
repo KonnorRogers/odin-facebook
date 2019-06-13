@@ -3,11 +3,11 @@
   <% if user_signed_in? %>
     <ul class="navbar">
       <li><%= link_to "Home", root_url %></li>
-      <li><%= link_to "Logout", "#" %></li>
+      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
     </ul>
   <% else %>
     <%= render 'layouts/login_form' %>
-<% end %>
+  <% end %>
 <div>
 
 
