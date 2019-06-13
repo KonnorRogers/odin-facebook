@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         authentication_keys: [:login]
+         authentication_keys: [:email]
 
   VALID_NAME_REGEXP = /\A[A-Za-z]+\z/.freeze
 
@@ -17,9 +17,5 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
-  end
-
-  def login
-    @login || self.email
   end
 end
