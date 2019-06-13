@@ -1,13 +1,13 @@
-<% if user_signed_in? %>
-<ul class="navbar">
-  <li><%= link_to "Home", root_url %></li>
-  <li><%= link_to "Logout", "#" %></li>
-</ul>
-<% else %>
-  <div class='login-container'>
-    <h1 class="title"> ParamagicBook </h1>
-    <%= render 'layouts/login_form' if !(current_page?(new_user_session_url)) || user_signed_in? %>
-  </div>
+<div class='header-container'>
+  <h1 class="title"> ParamagicBook </h1>
+  <% if user_signed_in? %>
+    <ul class="navbar">
+      <li><%= link_to "Home", root_url %></li>
+      <li><%= link_to "Logout", "#" %></li>
+    </ul>
+  <% else %>
+    <%= render 'layouts/login_form' %>
 <% end %>
+<div>
 
 
