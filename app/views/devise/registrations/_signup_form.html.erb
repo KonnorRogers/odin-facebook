@@ -1,0 +1,30 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.text_field :first_name, class: 'signup-field', placeholder: "First name" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :last_name, class: 'signup-field', placeholder: "Last name"%>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, class: 'signup-field', placeholder: "email" %>
+  </div>
+
+  <div class="field">
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, class: 'signup-field', placeholder: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, class: 'signup-field', placeholder: "new-password" %>
+  </div>
+
+  <div class="signup-btn actions">
+    <%= f.submit "Signup", class: "btn btn-green" %>
+  </div>
+<% end %>

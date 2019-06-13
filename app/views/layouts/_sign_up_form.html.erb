@@ -1,32 +1,12 @@
-<%= form_with(model: User.new, url: new_user_registration_path, local: true, class: "signup-form") do |f| %>
+<%= form_with(model: User.new, url: '/signup', local: true, class: "signup-form") do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <div class="signup-selection">
-    <%= f.label :first_name, class: 'signup-label first_name' %>
-    <%= f.text_field :first_name, class: 'signup-field' %>
-  </div>
+  <%= f.email_field :email, class: 'signup-field', placeholder: "Email" %>
 
-  <div class="signup-selection">
-    <%= f.label :last_name, class: 'signup-label last_name' %>
-    <%= f.text_field :last_name, class: 'signup-field'%>
-  </div>
+  <%= f.password_field :password, class: 'signup-field', placeholder: "Password" %>
 
-  <div class="signup-selection">
-    <%= f.label :email, class: 'signup-label' %>
-    <%= f.email_field :email, class: 'signup-field'%>
-  </div>
+  <%= f.password_field :password_confirmation, class: 'signup-field', placeholder: "Password confirmation" %>
 
-  <div class="signup-selection">
-    <%= f.label :password, class: 'signup-label' %>
-    <%= f.password_field :password, class: 'signup-field' %>
+  <div class="signup-btn">
   </div>
-
-  <div class="signup-selection">
-    <%= f.label :password_confirmation, class: 'signup-label' %>
-  <%= f.password_field :password_confirmation, class: 'signup-field' %>
-  </div>
-
-  <div>
-    <%= f.submit "Signup", class: "btn btn-blue" %>
-  <div>
 <% end %>

@@ -6,15 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # may not be needed due to devise
-  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
-
-  # validates :email, presence: true,
-  #                   length: { maximum: 255 },
-  #                   format: { with: VALID_EMAIL_REGEX },
-  #                   uniqueness: { case_sensitive: false }
-
   VALID_NAME_REGEXP = /\A[A-Za-z]+\z/.freeze
+
   %i[first_name last_name].each do |attr|
     validates attr, presence: true,
                     length: { maximum: 50 },
