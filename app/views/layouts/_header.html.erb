@@ -6,7 +6,7 @@
 <% else %>
   <div class='login-container'>
     <h1 class="title"> ParamagicBook </h1>
-    <%= render 'layouts/login_form' unless current_page?(new_user_session_path) %>
+    <%= render 'layouts/login_form' unless current_page?(new_user_session_path) || !(user_signed_in?) %>
   </div>
 <% end %>
 
