@@ -1,5 +1,5 @@
 <div class='header-container'>
-  <h1 class="title"> ParamagicBook </h1>
+  <h1 class="title"><%= link_to "ParamagicBook", root_url %> </h1>
   <% if user_signed_in? %>
     <ul class="navbar">
       <li><%= link_to "Home", root_url %></li>
@@ -8,6 +8,6 @@
   <% else %>
     <%= render 'layouts/login_form' %>
   <% end %>
-<div>
+</div>
 
 

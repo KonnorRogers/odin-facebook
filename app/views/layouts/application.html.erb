@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OdinFacebook</title>
+    <title>ParamagicBook</title>
     <%= render 'shared/metadata' %>
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
     <div class="container">
-      <%= render 'layouts/header' %>
-      <%= render 'shared/flash_messages' %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert alert-info"><%= alert %></p>
       <%= yield %>
-      <%# <%= render 'layouts/footer' %1> %>
-
     </div>
 
     <%= debug(params) if Rails.env.development? %>

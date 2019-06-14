@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  def show
-  end
-
   def index
+    if user_signed_in?
+    else
+      redirect_to signup_path
+    end
   end
 end
