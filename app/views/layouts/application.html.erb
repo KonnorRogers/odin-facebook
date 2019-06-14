@@ -8,8 +8,7 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert alert-info"><%= alert %></p>
+      <%= render 'shared/flash_messages' %>
       <%= yield %>
     </div>
 
