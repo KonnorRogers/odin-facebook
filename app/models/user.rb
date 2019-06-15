@@ -15,6 +15,7 @@ class User < ApplicationRecord
                     format: { with: VALID_NAME_REGEXP }
   end
 
+
   def full_name
     "#{first_name} #{last_name}"
   end
