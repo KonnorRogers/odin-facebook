@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     post '/login', to: 'devise/sessions#create'
     delete '/logout', to: 'devise/sessions#destroy'
 
-    get 'reset_password', to: 'devise/sessions'
+    get 'reset_password', to: 'devise/passwords#new'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
