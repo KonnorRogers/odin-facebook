@@ -111,7 +111,7 @@ h1.title {
 
 input.login-field {
   font-size: x-small;
-  border: none;
+  border: 0.5px solid gray;
 }
 
 .login-selection {
@@ -187,7 +187,7 @@ div.login-box {
   padding: 0.4rem;
   margin-bottom: 1.5rem;
   border-radius: 4px;
-  border: none;
+  border: 0.5px solid gray;
   box-shadow: none;
 }
 
@@ -196,6 +196,25 @@ div.signup-btn {
   align-content: stretch;
   width: 100%;
   margin-bottom: 1rem;
+}
+
+div.gender.field {
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+// gender radio buttons
+div.gender.field > input {
+  margin-left: 1rem;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+div.birthday.field {
+  select {
+    padding: 0.5rem 1rem;
+  }
 }
 
 // errors and notices
@@ -251,3 +270,4 @@ div.signup-btn {
     display: block;
   }
 }
+

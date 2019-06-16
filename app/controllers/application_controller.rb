@@ -14,12 +14,12 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     sign_in_attrs = %i[email password password_confirmation]
-    sign_up_attrs = %i[first_name last_name remember_me].concat(sign_in_attrs)
+    sign_up_attrs = %i[first_name last_name remember_me birthday gender].concat(sign_in_attrs)
     # make it a singular array
     sign_up_attrs.flatten!
 
     devise_parameter_sanitizer.permit(:sign_up, keys: sign_up_attrs)
     devise_parameter_sanitizer.permit(:sign_in, keys: sign_in_attrs)
-    # devise_paramater_sanitizer.permit(:account_update, keys: sign_in_attrs)
+    # devise_paramater_sanitizer.permit(:account_update, keys: sign_up_attrs)
   end
 end

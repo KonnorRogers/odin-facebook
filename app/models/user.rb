@@ -16,6 +16,10 @@ class User < ApplicationRecord
   end
 
 
+  def self.genders
+    %i[male female other]
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end

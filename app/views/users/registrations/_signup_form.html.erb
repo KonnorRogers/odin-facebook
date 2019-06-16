@@ -14,10 +14,6 @@
   </div>
 
   <div class="field">
-    <%= f.date_field :birthdate %>
-  </div>
-
-  <div class="field">
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -28,6 +24,21 @@
     <%= f.password_field :password_confirmation, class: 'signup-field', placeholder: "Password Confirmation" %>
   </div>
 
+  <div class="gender field">
+    <% User.genders.each do |gender| %>
+      <%= f.radio_button :gender, gender %>
+      <%= f.label :gender, gender.capitalize %>
+    <% end %>
+  </div>
+
+  <div class="birthday field">
+    <%= f.date_select(:birthday, 
+                    order: [:month, :day, :year],
+                    default: Date.today,
+                    use_short_month: true,
+                    start_year: Date.today.year - 100,
+                    end_year: Date.today.year) %>
+  </div>
   <div class="signup-btn actions">
     <%= f.submit "Signup", class: "btn btn-green" %>
   </div>
