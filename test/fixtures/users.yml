@@ -4,7 +4,9 @@ bob:
   first_name: bob
   last_name: ross
   email: bob@example.com
-  password_digest: <%= User.password('password') %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  gender: "male"
+  birthday: <%= Date.today - 19.years %>
 
 
 

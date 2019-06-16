@@ -28,7 +28,7 @@ body {
 }
 
 .btn-big {
-  width: 40%;
+  width: 80%;
   padding: 1rem;
 }
 
@@ -36,8 +36,8 @@ body {
 .btn-green {
   color: white;
   background-color: $dark-green;
-  padding: 0.5rem 1.5rem;
-  width: 40%;
+  // padding: 0.5rem 1.5rem;
+  padding: 0.75rem 4rem;
   &:hover {
     background-color: $light-green;
   }
@@ -159,22 +159,17 @@ div.login-box {
   padding: 0;
 }
 
+// signup form
 .signup-info {
   margin: auto;
   text-align: center;
   margin-left: auto;
   margin-right: 10rem;
   width: 40%;
-  display: flex;
   text-align: left;
-  flex-direction: column;
-}
-
-.signup-form {
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-items: baseline;
 }
 
 .signup-info.field {
@@ -185,30 +180,35 @@ div.login-box {
 
 .signup-field {
   padding: 0.4rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   border-radius: 4px;
   border: 0.5px solid gray;
   box-shadow: none;
 }
 
 div.signup-btn {
-  display: flex;
-  align-content: stretch;
+  // justify-content: center;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-left: 2rem;
 }
 
 div.gender.field {
-  margin-bottom: 2rem;
-  padding: 1rem 0;
+  margin-bottom: 0.5rem;
+  padding: 0;
 }
 
 // gender radio buttons
-div.gender.field > input {
-  margin-left: 1rem;
-  &:first-child {
-    margin-left: 0;
-  }
+div.gender.field > label {
+  margin-right: 1rem;
+}
+
+.gender-label {
+  margin-top: 0;
+}
+
+.gender-label, .birthday-label {
+  font-size: x-large;
+  color: $dark-purple;
 }
 
 div.birthday.field {
