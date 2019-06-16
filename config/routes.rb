@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
 
@@ -5,7 +7,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get '/signup', to: 'devise/registrations#new'
-    post '/signout', to: 'devise/regisrations#create'
+    post '/signup', to: 'devise/registrations#create'
 
     get '/login', to: 'devise/sessions#new'
     post '/login', to: 'devise/sessions#create'
