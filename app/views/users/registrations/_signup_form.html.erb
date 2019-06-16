@@ -25,6 +25,7 @@
   </div>
 
   <div class="gender field">
+    <p>Gender</p> 
     <% User.genders.each do |gender| %>
       <%= f.radio_button :gender, gender %>
       <%= f.label :gender, gender.capitalize %>
@@ -32,6 +33,7 @@
   </div>
 
   <div class="birthday field">
+    <p> Birthday </p>
     <%= f.date_select(:birthday, 
                     order: [:month, :day, :year],
                     default: Date.today,
