@@ -15,7 +15,8 @@ class User < ApplicationRecord
                     format: { with: VALID_NAME_REGEXP }
   end
 
-  validates :birthday, presence: true
+  validates :birthday, presence: true,
+                       age: { too_young: 13, too_old: 120 }
 
   validates :gender, presence: true
 

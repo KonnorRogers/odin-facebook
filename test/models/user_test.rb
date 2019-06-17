@@ -6,7 +6,10 @@ class UserTest < ActiveSupport::TestCase
                      first_name: 'testing',
                      last_name: 'example',
                      password: 'foobar',
-                     password_confirmation: 'foobar')
+                     password_confirmation: 'foobar',
+                     birthday: Date.today - 20.years,
+                     gender: 'male'
+                    )
   end
 
   test 'should not validate any emails' do
@@ -39,6 +42,21 @@ class UserTest < ActiveSupport::TestCase
 
     assert_no_difference 'User.count' do
       @user.last_name = '1test'
+      @user.save
+    end
+  end
+
+
+  test 'should not validate any birthdays where age < 13 or > 120' do
+    assert_no_difference 'User.count' do
+      # 12 years old and 364 days
+      @user.birthday = Date.today - 13.years + 1.day
+      @user.save
+    end
+
+    assert_no_difference 'User.count' do
+      # 121 years old and 1 day
+      @user.birthday = Date.today - 120.years - 1.day
       @user.save
     end
   end

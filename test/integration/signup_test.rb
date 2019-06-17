@@ -20,7 +20,7 @@ class SignupTest < ActionDispatch::IntegrationTest
     assert_redirected_to signup_path
 
     assert_difference 'User.count', 1 do
-      post signup_path, params: { user:  @user }
+      post signup_path, params: { user: @user }
     end
   end
 
