@@ -7,10 +7,10 @@ class AgeValidator < ActiveModel::EachValidator
     # return if value < too_young && value > too_old
     if value > too_young
       record.errors[attr] << (options[:message] ||
-                              'You must be older than 13 years old')
+        "You must be older than #{options[:too_young]} years old")
     elsif value < too_old
       record.errors[attr] << (options[:message] ||
-                              'You must be younger than 120 years old')
+        "You must be younger than #{options[:too_old]} years old")
     end
   end
 end
