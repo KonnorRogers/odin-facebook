@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  GENDERS = %i[male female other].freeze
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,11 +19,11 @@ class User < ApplicationRecord
   validates :birthday, presence: true,
                        age: { too_young: 13, too_old: 120 }
 
-  validates :gender, presence: true
-
-  def self.genders
-    %i[male female other]
-  end
+  validates :gender, presence: true,
+                     inclusion: {
+                       in: GENDERS.map(&:to_s),
+                       message: '%{value} is not a valid gender'
+                     }
 
   def full_name
     "#{first_name} #{last_name}"

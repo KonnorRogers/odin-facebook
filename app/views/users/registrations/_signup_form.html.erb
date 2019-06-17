@@ -31,7 +31,7 @@
 
   <div class="gender field">
     <p class="gender-label">Gender</p> 
-    <% User.genders.each do |gender| %>
+    <% User::GENDERS.each do |gender| %>
       <%= f.radio_button :gender, gender %>
       <%= f.label :gender, gender.capitalize %>
     <% end %>
