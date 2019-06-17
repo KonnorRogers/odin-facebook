@@ -15,6 +15,9 @@ class User < ApplicationRecord
                     format: { with: VALID_NAME_REGEXP }
   end
 
+  validates :birthday, presence: true
+
+  validates :gender, presence: true
 
   def self.genders
     %i[male female other]
