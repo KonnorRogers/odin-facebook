@@ -3,7 +3,7 @@
 one:
   user: bob
   friend: tabitha
-# 
-# two:
-#   user: two
-#   friend: two
+
+two:
+  user: tabitha
+  friend: marvin
