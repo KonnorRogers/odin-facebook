@@ -8,5 +8,20 @@ bob:
   gender: "male"
   birthday: <%= Date.today - 19.years %>
 
+tabitha:
+  first_name: tabitha
+  last_name: jones
+  email: tabitha@railsexample.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'foobar') %>
+  gender: "female"
+  birthday: <%= Date.today - 38.years %>
+
+marvin:
+  first_name: marvin
+  last_name: martian
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'marvin') %>
+  gender: 'unknown'
+  birthday: <%= Date.today - 100.years %>
+
 
 
