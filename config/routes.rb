@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'friends/index'
-  get 'friends/destroy'
-  resources :friend_requests
   devise_for :users
 
   root 'users#index'
@@ -21,4 +18,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users
+  resources :friend_requests
+  resources :friends
 end
