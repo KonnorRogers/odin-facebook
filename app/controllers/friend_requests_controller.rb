@@ -17,6 +17,10 @@ class FriendRequestsController < ApplicationController
     end
   end
 
+  def update
+    @friend_request.accept
+  end
+
   def destroy
     @friend_request.destroy
   end
