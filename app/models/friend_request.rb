@@ -28,11 +28,11 @@ class FriendRequest < ApplicationRecord
   end
 
   def create_inverse_relationship
-    friend.friendships.create(friend: user)
+    friend.friend_requests.create(friend: user)
   end
 
   def destroy_inverse_relationship
-    friendship = friend.friendships.find_by(friend: user)
-    friendship&.destroy
+    friend_request = friend.friend_requests.find_by(friend: user)
+    friend_request&.destroy
   end
 end
