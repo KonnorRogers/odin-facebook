@@ -36,4 +36,8 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def remove_friend(friend)
+    current_user.friends.destroy(friend)
+  end
 end

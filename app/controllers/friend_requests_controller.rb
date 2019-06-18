@@ -19,7 +19,10 @@ class FriendRequestsController < ApplicationController
 
   def destroy
     @friend_request.destroy
-    head :no_content
+  end
+
+  def update
+    @friend_request.accept
   end
 
   private
