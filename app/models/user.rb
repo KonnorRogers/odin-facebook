@@ -2,11 +2,12 @@
 
 class User < ApplicationRecord
   has_many :friend_requests, dependent: :destroy
-  has_many :pending_friends, through: :friend_requests,
-                             source: :friend
+  has_many :pending_requests, through: :friend_requests, source: :friend
 
-  has_many :friendships, dependent: :destroy
+  has_many :friendships
   has_many :friends, through: :friendships
+
+
 
   GENDERS = %i[male female other].freeze
 

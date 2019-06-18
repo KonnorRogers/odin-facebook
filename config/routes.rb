@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :friend_requests
   devise_for :users
 
   root 'users#index'
