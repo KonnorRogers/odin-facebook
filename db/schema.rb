@@ -16,11 +16,12 @@ ActiveRecord::Schema.define(version: 2019_06_18_210434) do
   enable_extension "plpgsql"
 
   create_table "friend_requests", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "friend_id"
+    t.integer "user_id"
+    t.integer "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["friend_id"], name: "index_friend_requests_on_friend_id"
+    t.index ["user_id", "friend_id"], name: "index_friend_requests_on_user_id_and_friend_id", unique: true
     t.index ["user_id"], name: "index_friend_requests_on_user_id"
   end
 
@@ -29,6 +30,9 @@ ActiveRecord::Schema.define(version: 2019_06_18_210434) do
     t.integer "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true
+    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,5 +51,4 @@ ActiveRecord::Schema.define(version: 2019_06_18_210434) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "friend_requests", "users"
 end

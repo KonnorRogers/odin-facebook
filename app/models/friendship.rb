@@ -5,7 +5,7 @@ class Friendship < ApplicationRecord
   after_destroy :destroy_inverse_relationship
 
   belongs_to :user
-  belongs_to :friend, class: 'User'
+  belongs_to :friend, class_name: 'User'
 
   validates :user, presence: true
   validates :friend, presence: true, uniqueness: { scope: :user }
