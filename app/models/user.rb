@@ -1,13 +1,20 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # Handles when a user REQUESTS another user
   has_many :friend_requests, dependent: :destroy
-  has_many :pending_requests, through: :friend_requests, source: :friend
+  has_many :pending_friends, through: :friend_requests, source: :friend
+
+  # Handles when a user was REQUESTED BY another user
+  has_many :inverse_friend_requests, class_name: 'FriendRequest',
+                                     foreign_key: 'friend_id'
+  has_many :pending_requests, through: :inverse_friend_requests, source: :user
 
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
-
-
+  has_many :inverse_friendships, class_name: 'Friendship',
+                                 foreign_key: 'friend_id'
+  has_many :inverse_friends, through: :inverse_friendships, source: :user
 
   GENDERS = %i[male female other].freeze
 
@@ -39,6 +46,10 @@ class User < ApplicationRecord
   end
 
   def remove_friend(friend)
-    current_user.friends.destroy(friend)
+    friends.destroy(friend)
+  end
+
+  def all_friends
+    friends + inverse_friends
   end
 end

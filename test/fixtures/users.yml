@@ -19,9 +19,15 @@ tabitha:
 marvin:
   first_name: marvin
   last_name: martian
+  email: marvin@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'marvin') %>
   gender: 'unknown'
   birthday: <%= Date.today - 100.years %>
 
-
-
+george:
+  first_name: george
+  last_name: jungle
+  email: george@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'jungle') %>
+  gender: 'male'
+  birthday: <%= Date.today - 80.years %>
