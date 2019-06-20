@@ -3,12 +3,12 @@
 class User < ApplicationRecord
   # Handles when a user REQUESTS another user
   has_many :friend_requests, dependent: :destroy
-  has_many :pending_friends, through: :friend_requests, source: :friend
+  has_many :sent_requests, through: :friend_requests, source: :friend
 
   # Handles when a user was REQUESTED BY another user
   has_many :inverse_friend_requests, class_name: 'FriendRequest',
                                      foreign_key: 'friend_id'
-  has_many :pending_requests, through: :inverse_friend_requests, source: :user
+  has_many :received_requests, through: :inverse_friend_requests, source: :user
 
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
@@ -50,6 +50,5 @@ class User < ApplicationRecord
   end
 
   def all_friends
-    friends + inverse_friends
   end
 end

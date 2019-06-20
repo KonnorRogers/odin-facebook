@@ -11,18 +11,6 @@ class FriendsTest < ActionDispatch::IntegrationTest
   end
 
   test 'should display friends properly' do
-    # bob should have a pending request with tabitha but not be her friend
-    assert_includes @bob.pending_friends, @tabitha
-    refute_includes @bob.friends, @tabitha
-
-    # same for tabitha
-    assert_includes @tabitha.pending_requests, @bob
-    refute_includes @tabitha.friends, @bob
-
-    # bob & marvin are friends , but not bob and tabitha
-    assert_includes @bob.friends, @marvin
-    assert_includes @marvin.inverse_friends, @bob
-    refute_includes @bob.friends, @tabitha
   end
 
   test 'adding a friend' do
