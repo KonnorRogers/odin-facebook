@@ -1,33 +1,21 @@
 class FriendRequestsController < ApplicationController
-  before_action :set_friend_request, except: [:index, :create]
-
-  def index
-    @incoming = FriendRequest.where(friend: current_user)
-    @outgoing = current_user.friend_requests
-  end
-
   def create
-    friend = User.find(params[:friend_id])
-    @friend_request = current_user.friend_requests.new(friend: friend)
-
-    if @friend_request.save
-      render :show, status: :created, location: @friend_request
+    @friendship = current_user.friendships.build(friend_id: params[:friend_id])
+    @friend = User.find(params[:friend_id])
+    if @friendship.save
+      flash[:notice] = "You have accepted #{@friend}"
     else
-      render json: @friend_request.errors, status: :unprocessable_entity
+      flash[:error] = 'Unable to add friend'
     end
-  end
 
-  def update
-    @friend_request.accept
+    redirect_to root_url
   end
 
   def destroy
-    @friend_request.destroy
-  end
-
-  private
-
-  def set_friend_request
-    @friend_request = FriendRequest.find(params[:id])
+    @friendship = current_user.friendships.find(params[:id])
+    @friend = User.find(params[:id])
+    @friendship.destroy
+    flash[:notice] = "You are no longer friends with #{@friend}"
+    redirect_to root_url
   end
 end
