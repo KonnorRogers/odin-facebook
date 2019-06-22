@@ -22,10 +22,10 @@ class FriendRequest < ApplicationRecord
 
 
   def not_friends
-    errors.add(:friend, 'is already added') if user.friends.include?(friend)
+    errors.add(:friend, 'is already added') if user.all_friends.include?(friend)
   end
 
   def not_pending
-    errors.add(:friend, 'already requested friendship') if friend.pending_friends.include?(user)
+    errors.add(:friend, 'already requested friendship') if friend.all_requests.include?(user)
   end
 end

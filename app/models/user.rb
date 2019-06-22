@@ -52,6 +52,9 @@ class User < ApplicationRecord
     friends.destroy(friend)
   end
 
+  def add_friend(friend)
+  end
+
   def all_friends
     friends + inverse_friends
   end
