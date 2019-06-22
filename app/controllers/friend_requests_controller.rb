@@ -1,6 +1,6 @@
 class FriendRequestsController < ApplicationController
   def create
-    @friendship = current_user.friendships.build(friend_id: params[:friend_id])
+    @friendship = current_user.friend_requests.build(friend_id: params[:friend_id])
     @friend = User.find(params[:friend_id])
     if @friendship.save
       flash[:notice] = "You have accepted #{@friend}"
@@ -12,7 +12,7 @@ class FriendRequestsController < ApplicationController
   end
 
   def destroy
-    @friendship = current_user.friendships.find(params[:id])
+    @friendship = current_user.friend_request.find(params[:id])
     @friend = User.find(params[:id])
     @friendship.destroy
     flash[:notice] = "You are no longer friends with #{@friend}"

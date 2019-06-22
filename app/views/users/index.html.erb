@@ -1,11 +1,17 @@
 logged in as: <%= current_user.full_name %>
 
+<h2> Other users </h2>
+
+<% @users.each do |user| %>
+
+<% end %>
+
 <h2> Friends </h2>
 
 <% @friends.each do |friend| %>
   <p class="friend">
     <%= friend.full_name %> 
-    <%= link_to "Remove friend", "#" %>
+    <%= link_to "Remove friend", friend_requests_path(friend), method: :delete %>
   </p>
 <% end %>
 
@@ -13,6 +19,6 @@ logged in as: <%= current_user.full_name %>
 <% @received_requests.each do |friend| %>
   <p class="friend">
     <%= friend.full_name %> 
-    <%= link_to "Accept friend", "#" %>
+    <%= link_to "Accept friend", friend_requests_path(friend), method: :post %>
   </p>
 <% end %>
