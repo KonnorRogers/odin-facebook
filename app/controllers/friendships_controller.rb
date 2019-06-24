@@ -2,8 +2,8 @@
 
 class FriendshipsController < ApplicationController
   def create
-    @friendship = current_user.friendships.build(friend_id: params[:friend_id])
-    @friend = User.find(params[:friend_id])
+    @friendship = current_user.friendships.build(friend_id: params[:id])
+    @friend = User.find(params[:id])
     if @friendship.save
       flash[:notice] = "You have accepted #{@friend}"
     else

@@ -44,15 +44,16 @@ class User < ApplicationRecord
                        message: '%{value} is not a valid gender'
                      }
 
+  def friend?(friend)
+    all_friends.include?(friend)
+  end
+
+  def pending_request?(friend)
+    all_requests.include?(friend)
+  end
+
   def full_name
     "#{first_name} #{last_name}"
-  end
-
-  def remove_friend(friend)
-    friends.destroy(friend)
-  end
-
-  def add_friend(friend)
   end
 
   def all_friends

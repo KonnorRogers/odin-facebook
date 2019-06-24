@@ -17,7 +17,7 @@ genders = %w[male female other]
   User.create(
     first_name: names[num],
     last_name: names[num].reverse,
-    email: "#{names[num]}@example.com",
+    email: "#{names[num]}@railsexample.com",
     password: 'foobar',
     password_confirmation: 'foobar',
     gender: genders.sample,

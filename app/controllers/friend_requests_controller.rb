@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class FriendRequestsController < ApplicationController
   def create
-    @friendship = current_user.friend_requests.build(friend_id: params[:friend_id])
-    @friend = User.find(params[:friend_id])
+    @friendship = current_user.friend_requests.build(friend_id: params[:id])
+    @friend = User.find(params[:id])
     if @friendship.save
-      flash[:notice] = "You have sent a friend request to #{@friend.full_name}"
+      flash[:notice] = "Friend request sent to #{@friend.full_name}"
     else
       flash[:error] = 'Unable to add friend'
     end
@@ -12,10 +14,10 @@ class FriendRequestsController < ApplicationController
   end
 
   def destroy
-    @friendship = current_user.friend_requests.find(params[:id])
+    @friend_request = current_user.friend_requests.find_by(friend_id: params[:id])
     @friend = User.find(params[:id])
-    @friendship.destroy
-    flash[:notice] = "You are no longer friends with #{@friend}"
+    @friend_request.destroy
+    flash[:notice] = "Cancelled friend request to #{@friend.full_name}"
     redirect_to root_url
   end
 end
