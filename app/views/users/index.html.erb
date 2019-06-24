@@ -11,10 +11,10 @@ logged in as: <%= current_user.full_name %>
 
 <h2> Friends </h2>
 
-<% @friendships.each do |friendship| %>
+<% @friends.each do |friend| %>
   <p class="friend">
-    <%= friendship.friend.full_name %>
-    <%= link_to "Remove friend", friendship_path(friendship, friend_id: friendship.friend.id), method: :delete %>
+    <%= friend.full_name %>
+    <%= link_to "Remove friend", friendship_path(friend, friend_id: friend.id), method: :delete %>
   </p>
 <% end %>
 
