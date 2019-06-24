@@ -2,8 +2,8 @@
 
 class FriendRequestsController < ApplicationController
   def create
-    @friendship = current_user.friend_requests.build(friend_id: params[:id])
-    @friend = User.find(params[:id])
+    @friendship = current_user.friend_requests.build(friend_id: params[:friend_id])
+    @friend = User.find(params[:friend_id])
     if @friendship.save
       flash[:notice] = "Friend request sent to #{@friend.full_name}"
     else
