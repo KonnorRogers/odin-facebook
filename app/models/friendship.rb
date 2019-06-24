@@ -10,7 +10,6 @@ class Friendship < ApplicationRecord
   validates :friend, presence: true, uniqueness: { scope: :user }
   validate :not_self
 
-
   private
 
   def not_self
@@ -18,6 +17,10 @@ class Friendship < ApplicationRecord
   end
 
   def destroy_friend_request
-    FriendRequest.find_by(user_id: user_id, friend_id: friend_id).destroy
+    ids = FriendRequest.where(user_id: user.id, friend_id: friend.id).or(
+      FriendRequest.where(user_id: friend.id, friend_id: user.id)
+    ).pluck(:id)
+
+    FriendRequest.destroy(ids)
   end
 end
