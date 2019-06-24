@@ -49,18 +49,26 @@ class User < ApplicationRecord
   end
 
   def pending_request?(friend)
-    all_requests.include?(friend)
+    all_friend_requests_ary.include?(friend)
   end
 
   def full_name
     "#{first_name} #{last_name}"
   end
 
+  def all_friendships
+    friends.joins(inverse_friends)
+  end
+
   def all_friends
     friends + inverse_friends
   end
 
-  def all_requests
+  def all_friend_requests
+    sent_requests.joins(received_requests)
+  end
+
+  def all_friend_requests_ary
     sent_requests + received_requests
   end
 end
