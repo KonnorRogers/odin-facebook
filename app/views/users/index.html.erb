@@ -5,7 +5,7 @@ logged in as: <%= current_user.full_name %>
 <% @users.each do |user| %>
   <p>
   <%= user.full_name %>
-  <%= link_to "Send friend request", friend_requests_path(user), method: :post %>
+  <%= link_to "Send friend request", friend_requests_path(friend_id: user.id), method: :post %>
   </p>
 <% end %>
 
@@ -23,5 +23,12 @@ logged in as: <%= current_user.full_name %>
   <p class="friend">
     <%= friend.full_name %> 
     <%= link_to "Accept friend", friend_requests_path(friend), method: :post %>
+  </p>
+<% end %>
+
+<h2> Sent requests </h2>
+<% @sent_requests.each do |friend| %>
+  <p>
+  <%= friend.full_name %>
   </p>
 <% end %>
