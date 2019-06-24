@@ -13,13 +13,13 @@ class FriendsTest < ActionDispatch::IntegrationTest
   test 'should return proper friends' do
     # bob should have a pending request with tabitha but not be her friend
     assert_includes @bob.sent_requests, @tabitha
-    assert_includes @bob.all_requests, @tabitha
+    assert_includes @bob.all_friend_requests_ary, @tabitha
     refute_includes @bob.friends, @tabitha
     refute_includes @bob.all_friends, @tabitha
 
     # same for tabitha
     assert_includes @tabitha.received_requests, @bob
-    assert_includes @tabitha.all_requests, @bob
+    assert_includes @tabitha.all_friend_requests_ary, @bob
     refute_includes @tabitha.friends, @bob
     refute_includes @tabitha.all_friends, @bob
 
