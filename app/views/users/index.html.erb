@@ -5,7 +5,7 @@ logged in as: <%= current_user.full_name %>
 <% @users.each do |user| %>
   <p>
   <%= user.full_name %>
-  <%= link_to "Send friend request", friend_requests_path(friend_id: user.id), method: :post %>
+  <%= link_to "Add friend", friend_requests_path(friend_id: user.id), method: :post %>
   </p>
 <% end %>
 
@@ -22,7 +22,8 @@ logged in as: <%= current_user.full_name %>
 <% @received_requests.each do |friend| %>
   <p class="friend">
     <%= friend.full_name %> 
-    <%= link_to "Accept friend", friendships_path(friend_id: friend), method: :post %>
+    <%= link_to "Confirm", friendships_path(friend_id: friend), method: :post %>
+    <%= link_to "Delete", friend_request_path(friend), method: :delete %>
   </p>
 <% end %>
 
