@@ -4,6 +4,7 @@
     <ul class="navbar">
       <li><%= link_to "Home", root_url %></li>
       <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      <svg class="icon icon-bell"><use xlink:href="#icon-bell"></use></svg>
     </ul>
   <% elsif current_page?(signup_path) || current_page?(new_user_registration_path) %> 
     <%= render 'layouts/login_form' %>
