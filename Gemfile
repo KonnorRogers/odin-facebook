@@ -11,6 +11,7 @@ gem 'devise', '~> 4.6' # authentication
 gem 'dotenv-rails', '~> 2.7',
     require: 'dotenv/rails-now',
     groups: %i[test development]
+gem 'font-awesome-rails', '~> 4.5'
 gem 'jbuilder', '~> 2.5'
 gem 'normalize-rails', '~> 4.0'
 gem 'pg', '>= 0.18', '< 2.0'
