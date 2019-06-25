@@ -35,7 +35,6 @@ class FriendsTest < ActionDispatch::IntegrationTest
   end
 
   test 'adding a friend' do
-    sign_in @bob
   end
 
   test 'removing a friend' do
