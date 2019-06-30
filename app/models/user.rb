@@ -44,31 +44,23 @@ class User < ApplicationRecord
                        message: '%{value} is not a valid gender'
                      }
 
-  def friend?(friend)
-    all_friends.include?(friend)
-  end
-
-  def pending_request?(friend)
-    all_friend_requests_ary.include?(friend)
-  end
-
   def full_name
     "#{first_name} #{last_name}"
   end
 
-  def all_friendships
-    friends.joins(inverse_friends)
+  def friend?(friend)
+    friends.include?(friend) || inverse_friends.include?(friend)
+  end
+
+  def pending_request?(friend)
+    sent_requests.include?(friend) || received_requests.include?(friend)
   end
 
   def all_friends
-    friends + inverse_friends
+    User.joins(:friends, :inverse_friends)
   end
 
   def all_friend_requests
-    sent_requests.joins(received_requests)
-  end
-
-  def all_friend_requests_ary
-    sent_requests + received_requests
+    User.joins(:sent_requests, :received_requests)
   end
 end
