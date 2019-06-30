@@ -1,0 +1,8 @@
+<h2> Pending Requests </h2>
+<% pending_requests.each do |friend| %>
+  <p class="friend">
+    <%= friend.full_name %> 
+    <%= link_to "Confirm", friendships_path(friend_id: friend), method: :post %>
+    <%= link_to "Delete", friend_request_path(friend), method: :delete %>
+  </p>
+<% end %>

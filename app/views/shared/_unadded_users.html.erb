@@ -1,0 +1,9 @@
+<h2> Other users </h2>
+
+<% users.each do |user| %>
+  <p>
+  <%= user.full_name %>
+  <%= link_to "Add friend", friend_requests_path(friend_id: user.id), 
+                            method: :post %>
+  </p>
+<% end %>
