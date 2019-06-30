@@ -27,8 +27,14 @@ class FriendsTest < ActionDispatch::IntegrationTest
     assert_includes @bob.friends, @marvin
     assert_includes @bob.all_friends, @marvin
     assert_includes @marvin.inverse_friends, @bob
-    assert_includes @marvin.all_friends.to_a, @bob
+    assert_includes @marvin.all_friends, @bob
     refute_includes @bob.friends, @tabitha
+
+    assert @bob.friend?(@marvin)
+    assert @bob.pending_request?(@tabitha)
+    assert @marvin.friend?(@bob)
+    refute @tabitha.friend?(@marvin)
+    refute @marvin.pending_request?(@bob)
   end
 
   test 'should display friends properly' do

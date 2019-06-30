@@ -49,7 +49,7 @@ class User < ApplicationRecord
   end
 
   def friend?(friend)
-    all_frineds.include?(friend)
+    all_friends.include?(friend)
   end
 
   def pending_request?(friend)
