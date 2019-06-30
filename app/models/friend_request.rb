@@ -18,11 +18,11 @@ class FriendRequest < ApplicationRecord
   end
 
   def not_friends
-    errors.add(:friend, 'is already added') if user.all_friends.include?(friend)
+    errors.add(:friend, 'is already added') if user.friend?(friend)
   end
 
   def not_pending
-    return unless user.all_friend_requests_ary.include?(friend)
+    return unless user.pending_request?(friend)
 
     errors.add(:friend, 'already requested friendship')
   end
