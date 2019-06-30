@@ -10,7 +10,10 @@ class FriendRequestsController < ApplicationController
       flash[:error] = 'Unable to add friend'
     end
 
-    redirect_to root_url
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js
+    end
   end
 
   def destroy
@@ -18,6 +21,10 @@ class FriendRequestsController < ApplicationController
     @friend = User.find(params[:id])
     @friend_request.destroy
     flash[:notice] = "Cancelled friend request to #{@friend.full_name}"
-    redirect_to root_url
+
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js
+    end
   end
 end

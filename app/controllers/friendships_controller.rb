@@ -9,8 +9,10 @@ class FriendshipsController < ApplicationController
     else
       flash[:error] = 'Unable to add friend'
     end
-
-    redirect_to root_url
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js
+    end
   end
 
   def destroy
@@ -18,6 +20,10 @@ class FriendshipsController < ApplicationController
     @friend = User.find(params[:friend_id])
     @friendship.destroy
     flash[:notice] = "Removed #{@friend.full_name}"
-    redirect_to root_url
+
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js
+    end
   end
 end
