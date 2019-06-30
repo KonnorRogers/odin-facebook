@@ -19,7 +19,7 @@ class FriendsTest < ActionDispatch::IntegrationTest
 
     # same for tabitha
     assert_includes @tabitha.received_requests, @bob
-    # assert_includes @tabitha.all_friend_requests.to_a, @bob
+    assert_includes @tabitha.all_friend_requests.to_a, @bob
     refute_includes @tabitha.friends, @bob
     refute_includes @tabitha.all_friends, @bob
 

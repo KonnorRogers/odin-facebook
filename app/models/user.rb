@@ -49,18 +49,18 @@ class User < ApplicationRecord
   end
 
   def friend?(friend)
-    friends.include?(friend) || inverse_friends.include?(friend)
+    all_frineds.include?(friend)
   end
 
   def pending_request?(friend)
-    sent_requests.include?(friend) || received_requests.include?(friend)
+    all_friend_requests.include?(friend)
   end
 
   def all_friends
-    User.joins(:friends, :inverse_friends)
+    friends + inverse_friends
   end
 
   def all_friend_requests
-    User.joins(:sent_requests, :received_requests)
+    received_requests + sent_requests
   end
 end
