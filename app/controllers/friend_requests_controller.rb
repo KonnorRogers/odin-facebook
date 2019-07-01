@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class FriendRequestsController < ApplicationController
+  def index
+    @received_requests = current_user.received_requests
+    @sent_requests = current_user.sent_requests
+  end
+
   def create
     @friendship = current_user.friend_requests.build(friend_id: params[:friend_id])
     @friend = User.find(params[:friend_id])
@@ -15,6 +20,7 @@ class FriendRequestsController < ApplicationController
       format.js
     end
   end
+
 
   def destroy
     @friend_request = current_user.friend_requests.find_by(friend_id: params[:id])
