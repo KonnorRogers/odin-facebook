@@ -2,13 +2,13 @@
   <ul class="navbar">
     <li class="home"><%= link_to "Home", root_url %></li>
     <div class="dropdown">
-      <button onclick="dropDown()" class="dropbtn">
-        <li class="bell"><%= fa_icon "bell" %></li>
+      <button class="dropbtn" onclick="dropDown()">
+        <%= fa_icon "bell" %>
         <%= fa_icon "caret-down" %>
       </button>
 
       <%# https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_dropdown_navbar_click %>
-      <div id="dropdown-notifications" class="dropdown-links">
+      <div id="myDropdown" class="dropdown-content">
         <%= link_to "Link 1", "#" %>
         <%= link_to "Link 2", "#" %>
         <%= link_to "Link 3", "#" %>
