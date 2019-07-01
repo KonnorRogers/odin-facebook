@@ -18,7 +18,7 @@ class User < ApplicationRecord
                                  foreign_key: 'friend_id',
                                  dependent: :destroy
   has_many :inverse_friends, through: :inverse_friendships, source: :user
-  has_many :notifications, foreign_key: "recipient_id"
+  has_many :notifications, foreign_key: 'recipient_id'
 
   GENDERS = %i[male female other].freeze
 
