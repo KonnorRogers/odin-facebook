@@ -1,0 +1,19 @@
+  <ul class="navbar">
+    <li class="home"><%= link_to "Home", root_url %></li>
+    <div class="dropdown">
+      <button class="dropbtn" id="drop-btn">
+        <%= fa_icon "bell" %>
+        <%= fa_icon "caret-down" %>
+      </button>
+
+      <%# https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_dropdown_navbar_click %>
+      <div id="myDropdown" class="dropdown-content">
+        <%= link_to "Link 1", "#" %>
+        <%= link_to "Link 2", "#" %>
+        <%= link_to "Link 3", "#" %>
+      </div>
+    </div>
+    <li class="logout"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+  </ul>
+
+<%= javascript_include_tag "dropdown"%>
