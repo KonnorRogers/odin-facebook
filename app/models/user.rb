@@ -18,6 +18,7 @@ class User < ApplicationRecord
                                  foreign_key: 'friend_id',
                                  dependent: :destroy
   has_many :inverse_friends, through: :inverse_friendships, source: :user
+
   has_many :notifications, foreign_key: 'recipient_id'
 
   GENDERS = %i[male female other].freeze
@@ -65,7 +66,7 @@ class User < ApplicationRecord
     received_requests + sent_requests
   end
 
-  def create_friend_request(friend_id)
-    friend_requests.build(friend_id: friend_id)
-  end
+  # def create_friend_request(friend_id)
+  #   friend_requests.build(friend_id: friend_id)
+  # end
 end

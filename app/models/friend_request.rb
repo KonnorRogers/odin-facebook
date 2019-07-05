@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class FriendRequest < ApplicationRecord
+  after_save :send_notification
+
   belongs_to :user
   belongs_to :friend, class_name: 'User'
 
@@ -25,5 +27,10 @@ class FriendRequest < ApplicationRecord
     return unless user.pending_request?(friend)
 
     errors.add(:friend, 'already requested friendship')
+  end
+
+  def send_notification
+    Notification.create(recipient: friend, sender: user,
+                        action: 'sent', notifiable: self)
   end
 end

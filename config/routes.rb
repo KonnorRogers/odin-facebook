@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'notifications/index'
   devise_for :users
 
   root 'users#index'
@@ -20,4 +21,5 @@ Rails.application.routes.draw do
   resources :users
   resources :friendships, only: %i[create destroy index]
   resources :friend_requests, only: %i[create destroy index]
+  resources :notifications, only: [:index]
 end
