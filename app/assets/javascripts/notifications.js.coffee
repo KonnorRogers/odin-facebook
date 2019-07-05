@@ -1,8 +1,7 @@
 class Notifications
   constructor: ->
     @notifications = document.querySelector("[data-behavior='notifications']")
-    # @setup() if @notifications.length > 0
-    # @setup()
+    @setup() if @notifications.length > 0
 
   setup: ->
     console.log(@notifications)
