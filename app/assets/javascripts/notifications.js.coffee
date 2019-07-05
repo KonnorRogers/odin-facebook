@@ -7,8 +7,5 @@ class Notifications
   setup: ->
     console.log(@notifications)
 
-notifications = ->
-  document.querySelector("[data-behavior='notifications']")
-
-document.addEventListener("DOMContentLoaded", notifications)
+document.addEventListener("DOMContentLoaded", new Notifications)
 
