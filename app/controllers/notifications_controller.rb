@@ -1,5 +1,11 @@
 class NotificationsController < ApplicationController
   def index
-    @notifications = Notificaiton.where(recipient: current_user).unread
+    @notifications = Notification.where(recipient: current_user).unread
+  end
+
+  def mark_as_read
+    @notifications = Notification.where(recipient: current_user).unread
+    @notification.update_all(read_at: Time.zone.now)
+    render json: {success: true}
   end
 end
