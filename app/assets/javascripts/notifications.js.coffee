@@ -1,8 +1,10 @@
 class Notifications
   constructor: ->
-    @notifications = document.getElementById("notifications")
+    @notifications()
     @setup()
 
+  notifications: ->
+    document.querySelector("[data-behavior='notifications']")
   setup: ->
     console.log(@notifications)
 
