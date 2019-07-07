@@ -1,14 +1,11 @@
 class Notifications
   constructor: ->
-    @notifications()
+    @notifications = document.querySelector("[data-behavior='notifications']")
     @setup()
 
-  notifications: ->
-    document.querySelector("[data-behavior='notifications']")
   setup: ->
     console.log(@notifications)
 
-document.addEventListener("turbolinks:load", () =>
-  new Notifications)
-
+document.addEventListener "turbolinks:load", ->
+  new Notifications
 
