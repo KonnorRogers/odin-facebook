@@ -8,5 +8,7 @@ class Notifications
   setup: ->
     console.log(@notifications)
 
-document.addEventListener("DOMContentLoaded", new Notifications)
+document.addEventListener("turbolinks:load", () =>
+  new Notifications)
+
 
