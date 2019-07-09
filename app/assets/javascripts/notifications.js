@@ -16,10 +16,9 @@ class Notifications {
 
   handleSuccess(data) {
     const items = data.map((n) => 
-      // `<li class='dropdown-item'> ${n.actor} ${n.action} ${n.notifiable.type} </li>`
-      console.log(n)
+      `<li class='dropdown-item'> ${n.sender.first_name} ${n.sender.last_name} ${n.action} you a ${n.notifiable.type} </li>`
     );
-    console.log(items)
+    return items
   }
 }
 
