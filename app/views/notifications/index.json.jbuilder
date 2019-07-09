@@ -7,4 +7,6 @@ json.array! @notifications do |notification|
   json.notifiable do
     json.type "a #{notification.notifiable.class.to_s.underscore.humanize.downcase}"
   end
+
+  # json.url(notification.notifiable)
 end
