@@ -13,8 +13,7 @@ window.onclick = function(e) {
   }
 }
 
-
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('turbolinks:load', function () {
   let dropbtn = document.getElementById("drop-btn");
   dropbtn.addEventListener("click", dropDown, false);
 });
