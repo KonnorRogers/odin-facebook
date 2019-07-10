@@ -1,25 +1,32 @@
 /* When the user clicks on the button, toggle between hiding and showing the dropdown content */ 
 
-function dropDown(element) {
-  element.classList.toggle("show");
+function dropDown(e) {
+  e.classList.toggle("show");
 }
 
-window.onclick = (e) => {
-  if (e.target.closest('.dropbtn')) { return false };
+function removeDropDown(dropdown, closestString) {
+  window.onclick = (e) => {
+    if (e.target.closest(closestString)) { return false };
 
-  const myDropdown = document.getElementById("myDropdown");
-  if (myDropdown.classList.contains('show')) {
-    myDropdown.classList.remove('show');
+    if (dropdown.classList.contains('show')) {
+      dropdown.classList.remove('show');
+    }
   }
 }
 
-const myFriendRequests = document.getElementById("myFriends");
-const myNotifications = document.getElementById("myNotifications");
+function addDropdown(dropdown, string) {
+  document.querySelector(string).addEventListener("click", dropDown(dropdown), false);
+};
+
+
 
 document.addEventListener('turbolinks:load', () => {
-  const friendBtn = document.querySelector(".friend-requests-btn");
-  notifications.addEventListener("click", dropDown(myFriendRequests), false);
+  const nDropdown = document.querySelector("#myNotifications");
+  const nString = ".notifications-btn"
 
-  const notificationsBtn = document.querySelector(".notifications-btn")
-  notificationsBtn.addEventLister("click", dropDown(myNotifications), false);
+  const fDropdown = document.querySelector("#myFriends")
+  const fString = ".friend-requests-btn"
+
+  addDropdown(nDropdown, nString);
+  addDropdown(fDropdown, fString);
 });
