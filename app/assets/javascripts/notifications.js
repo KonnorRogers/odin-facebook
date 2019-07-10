@@ -39,7 +39,7 @@ class Notifications {
       `<a class='dropdown-item' href=${n.url}> ${n.sender.first_name} ${n.sender.last_name} ${n.action} ${n.notifiable.type} </a>`
     );
 
-    items.push("<a class='dropdown-item' href='/notifications'> View all notifications </a>"); 
+    items.push("<a class='dropdown-item count' href='/notifications'> View all notifications </a>"); 
     if (items.length - 1 > 0) { this.notificationsCount.innerText = items.length - 1; };
     this.notificationsItems.innerHTML = items;
   };

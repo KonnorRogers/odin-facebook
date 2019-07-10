@@ -5,8 +5,6 @@ class FriendRequestsController < ApplicationController
     @received_requests = current_user.received_requests
     @sent_requests = current_user.sent_requests
     @unread_requests = FriendRequest.where(friend_id: current_user).unread
-
-    render json: { success: true }
   end
 
   def create
@@ -38,7 +36,7 @@ class FriendRequestsController < ApplicationController
   end
 
   def mark_as_read
-    @unread_requests = Notifications.where(friend_id: current_user).unread
+    @unread_requests = FriendRequest.where(friend_id: current_user).unread
     @unread_requests.update_all(read_at: Time.zone.now)
     render json: { success: true }
   end
