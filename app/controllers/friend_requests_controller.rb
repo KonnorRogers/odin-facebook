@@ -5,6 +5,8 @@ class FriendRequestsController < ApplicationController
     @received_requests = current_user.received_requests
     @sent_requests = current_user.sent_requests
     @unread_requests = FriendRequest.where(friend_id: current_user).unread
+
+    render json: { success: true }
   end
 
   def create
