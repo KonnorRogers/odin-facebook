@@ -1,10 +1,10 @@
 /* When the user clicks on the button, toggle between hiding and showing the dropdown content */ 
-function dropDown() {
-  document.getElementById("myDropdown").classList.toggle("show");
+
+function dropDown(element) {
+  element.classList.toggle("show");
 }
 
-window.onclick = function(e) {
-  if (e.target.matches('.dropbtn')) { return false };
+window.onclick = (e) => {
   if (e.target.closest('.dropbtn')) { return false };
 
   const myDropdown = document.getElementById("myDropdown");
@@ -13,7 +13,13 @@ window.onclick = function(e) {
   }
 }
 
-document.addEventListener('turbolinks:load', function () {
-  let dropbtn = document.getElementById("drop-btn");
-  dropbtn.addEventListener("click", dropDown, false);
+const myFriendRequests = document.getElementById("myFriends");
+const myNotifications = document.getElementById("myNotifications");
+
+document.addEventListener('turbolinks:load', () => {
+  const friendBtn = document.querySelector(".friend-requests-btn");
+  notifications.addEventListener("click", dropDown(myFriendRequests), false);
+
+  const notificationsBtn = document.querySelector(".notifications-btn")
+  notificationsBtn.addEventLister("click", dropDown(myNotifications), false);
 });
