@@ -33,4 +33,10 @@ class FriendRequestsController < ApplicationController
       format.js
     end
   end
+
+  def mark_as_read
+    @unread_requests = Notifications.where(friend_id: current_user).unread
+    @unread_requests.update_all(read_at: Time.zone.now)
+    render json: { success: true }
+  end
 end

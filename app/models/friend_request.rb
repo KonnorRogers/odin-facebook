@@ -13,6 +13,8 @@ class FriendRequest < ApplicationRecord
   validate :not_friends
   validate :not_pending
 
+  scope :unread, -> { where(read_at: nil) }
+
   private
 
   def not_self
