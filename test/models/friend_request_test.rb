@@ -15,7 +15,7 @@ class FriendRequestTest < ActiveSupport::TestCase
 
   test 'should create a friend request' do
     assert_difference 'FriendRequest.count', 1 do
-      new = @bob.create_friend_request(@new_user.id)
+      new = @bob.friend_requests.build(friend_id: @new_user.id)
 
       if new.save
       else
@@ -28,7 +28,6 @@ class FriendRequestTest < ActiveSupport::TestCase
   test 'should not create friend request if the friend is self' do
     assert_no_difference 'FriendRequest.count' do
       @bob.friend_requests.build(friend_id: @bob.id).save
-      @bob.create_friend_request(@bob.id).save
     end
   end
 end

@@ -65,8 +65,4 @@ class User < ApplicationRecord
   def all_friend_requests
     received_requests + sent_requests
   end
-
-  # def create_friend_request(friend_id)
-  #   friend_requests.build(friend_id: friend_id)
-  # end
 end
