@@ -15,6 +15,14 @@ class FriendRequest < ApplicationRecord
 
   scope :unread, -> { where(read_at: nil) }
 
+  def self.last_five
+    max = 5
+    return unread.limit(max) if unread.length >= max
+
+    additional = max - unread.length
+    unread + limit(additional)
+  end
+
   private
 
   def not_self

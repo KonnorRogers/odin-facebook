@@ -2,7 +2,7 @@
   <li class="home"><%= link_to "Home", root_url %></li>
   <div class="dropdown" data-behavior="friend-requests">
     <button class="dropbtn friend-requests-btn" id="drop-btn" data-behavior="friend-requests-link">
-      <%= fa_icon "users" %><span data-behavior="friend-requests-count"</span>
+      <%= fa_icon "users" %><span class="count" data-behavior="friend-requests-count"></span>
       <%= fa_icon "caret-down" %>
     </button>
     <div id="myFriends" class="dropdown-content" data-behavior="friend-requests-items">
@@ -10,11 +10,11 @@
   </div>
   <div class="dropdown" data-behavior="notifications">
     <button class="dropbtn notifications-btn" id="drop-btn" data-behavior="notifications-link">
-      <%= fa_icon "bell" %> <span data-behavior="notifications-count"> </span>
+      <%= fa_icon "bell" %> <span class="count" data-behavior="notifications-count"> </span>
       <%= fa_icon "caret-down" %>
     </button>
 
-    <div id="myNotifications" class="dropdown-content" data-behavior="notification-items">
+    <div id="myNotifications" class="dropdown-content" data-behavior="notifications-items">
     </div>
   </div>
   <li class="logout"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>

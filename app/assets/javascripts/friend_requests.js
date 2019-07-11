@@ -6,19 +6,27 @@ class FriendRequests {
     this.friendRequestsCount = document.querySelector("[data-behavior='friend-requests-count']");
     this.friendRequestsItems = document.querySelector("[data-behavior='friend-requests-items']");
     
-    if (this.friendRequests !== null) { this.setup() };
+    if (this.friendRequests !== null) { 
+      this.addClickListener() 
+      this.getNewFriendRequests()
+
+      // every 5 seconds sends off an ajax request for new
+      // notifications
+      setInterval(() => this.getNewFriendRequests(), 5000)
+    };
   }
 
-  setup() {
+  addClickListener() {
     this.friendRequestsLink.addEventListener("click", this.handleClick, false);
+  }
 
+  getNewFriendRequests() {
     Rails.ajax({
       url: "/friend_requests.json",
       type: "GET",
       dataType: "JSON",
       success: (data) => { this.handleSuccess(data) }
     })
-
   };
 
   handleClick(e) {
@@ -26,24 +34,37 @@ class FriendRequests {
       url: "/friend_requests/mark_as_read",
       type: "POST",
       dataType: "JSON",
-      success: () => {
-        console.log(this.friendRequestsCount);
-        this.friendRequestsCount.innerText = null;
-      }
+      success: (data) => { "success" }
     });
   };
 
   // populates the icon 
   handleSuccess(data) {
-    console.log(data)
-    const items = data.map(f => 
+    const unread_count = this.countUnread(data)
+    const items = data.map(f =>
       `<a href=${f.url} class='dropdown-item'> ${f.message} </a>`
     );
 
     items.push("<a class='dropdown-item count' href='/friend_requests'>View all friend requests </a>"); 
-    if (items.length - 1 > 0) { this.friendRequestsCount.innerText = items.length - 1; };
-    this.friendRequestsItems.innerHTML = items;
+
+    if (unread_count > 0) { this.setCount(unread_count) };
+    this.friendRequestsItems.innerHTML = items.join("");
   };
+
+  setCount(text) {
+    this.friendRequestsCount.innerText = text;
+  }
+
+  countUnread(ary) {
+    let unread_count = 0;
+    ary.forEach(f => { 
+      if (f.read === null) {
+        unread_count += 1
+      }
+    })
+
+    return unread_count;
+  }
 };
 
 document.addEventListener("turbolinks:load", () => {

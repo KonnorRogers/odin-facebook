@@ -4,7 +4,7 @@ class FriendRequestsController < ApplicationController
   def index
     @received_requests = current_user.received_requests
     @sent_requests = current_user.sent_requests
-    @unread_requests = FriendRequest.where(friend_id: current_user).unread
+    @last_five_requests = FriendRequest.where(friend_id: current_user).last_five
   end
 
   def create
