@@ -48,6 +48,7 @@ class Notifications {
     this.items.innerHTML = items.join("");
   };
 
+  // ERROR HERE 
   handleClick(e) {
     Rails.ajax({
       url: "/notifications/mark_as_read",
@@ -61,9 +62,7 @@ class Notifications {
   };
 };
 
-
 document.addEventListener("turbolinks:load", () => {
   new Notifications("notifications");
   new Notifications("friend-requests");
 });
-
