@@ -1,31 +1,31 @@
 class Notifications {
-  constructor() {
-    this.notifications = document.querySelector("[data-behavior='notifications']");
-    this.notificationsLink = document.querySelector("[data-behavior='notifications-link']");
-    this.notificationsCount = document.querySelector("[data-behavior='notifications-count']");
-    this.notificationsItems = document.querySelector("[data-behavior='notifications-items']");
+  constructor(behavior) {
+    this.behavior = behavior
+    this.behaviorElement = document.querySelector(`[data-behavior=${behavior}]`);
+    this.linkBtn = document.querySelector(`[data-behavior='${behavior}-link']`);
+    this.count = document.querySelector(`[data-behavior='${behavior}-count']`);
+    this.items = document.querySelector(`[data-behavior='${behavior}-items']`);
 
-    // Checks that the notifications button exists
-    if (this.notifications !== null) { 
+    // Checks that the behavior button exists
+    if (this.behaviorElement !== null) { 
       this.addClickListener() 
-      this.getNewNotifications()
+      this.getNewBehavior()
 
-      // every 5 seconds sends off an ajax request for new
-      // notifications
-      setInterval(() => this.getNewNotifications(), 5000)
+      // every 5 seconds sends off an ajax request
+      setInterval(() => this.getNewBehavior(), 5000)
     };
 
 
   };
 
   addClickListener() {
-    this.notificationsLink.addEventListener("click", 
+    this.linkBtn.addEventListener("click", 
       () => this.handleClick, false);
   }
 
-  getNewNotifications() {
+  getNewBehavior() {
     Rails.ajax({
-      url: "/notifications.json",
+      url: `/${this.behavior}.json`,
       type: "GET",
       dataType: "JSON",
       success: (data) => { this.handleSuccess(data) }
@@ -39,29 +39,40 @@ class Notifications {
       `<a class='dropdown-item' href=${n.url}> ${n.sender.first_name} ${n.sender.last_name} ${n.action} ${n.notifiable.type} </a>`
     );
 
-    items.push("<a class='dropdown-item count' href='/notifications'> View all notifications </a>"); 
+    items.push(`<a class='dropdown-item count' href='/${this.behavior}'> View all ${this.behavior} </a>`); 
     if (items.length - 1 > 5) { 
       this.setCount("5+") 
     } else if (items.length - 1 > 0) {
       this.setCount(items.length - 1)
     };
-    this.notificationsItems.innerHTML = items;
+    this.items.innerHTML = items;
   };
 
   handleClick(e) {
     Rails.ajax({
-      url: "/notifications/mark_as_read",
+      url: `/${this.behavior}/mark_as_read`,
       type: "POST",
       dataType: "JSON",
     });
-  }
+  };
 
   setCount(text) {
-    this.notificationsCount.innerText = text;
+    this.count.innerText = text;
+  };
+
+  countUnread(ary) {
+    let unread_count = 0;
+    ary.forEach(f => { 
+      if (f.read === null) {
+        unread_count += 1
+      }
+    })
+
+    return unread_count;
   }
 };
 
 document.addEventListener("turbolinks:load", () => {
-  new Notifications
+  new Notifications("notifications");
 });
 
