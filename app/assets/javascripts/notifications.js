@@ -20,7 +20,7 @@ class Notifications {
 
   addClickListener() {
     this.linkBtn.addEventListener("click", 
-      () => this.handleClick, false);
+      this.handleClick, false);
   }
 
   getNewNotifications() {
@@ -52,7 +52,7 @@ class Notifications {
     Rails.ajax({
       url: "/notifications/mark_as_read",
       type: "POST",
-      dataType: "JSON",
+      dataType: "JSON"
     });
   };
 
@@ -60,6 +60,7 @@ class Notifications {
     this.count.innerText = text;
   };
 };
+
 
 document.addEventListener("turbolinks:load", () => {
   new Notifications("notifications");
