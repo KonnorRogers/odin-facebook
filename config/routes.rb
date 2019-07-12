@@ -21,13 +21,9 @@ Rails.application.routes.draw do
   resources :users
   resources :friendships, only: %i[create destroy index]
 
-  # allows for friend_request noitifications to be marked as read
-  resources :friend_requests, only: %i[create destroy index] do
-    collection do
-      post :mark_as_read
-    end
-  end
+  resources :friend_requests, only: %i[create destroy]
 
+  # allow notifications to be marked as read
   resources :notifications, only: [:index] do
     collection do
       post :mark_as_read

@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 class FriendRequestsController < ApplicationController
-  def index
-    @received_requests = current_user.received_requests
-    @sent_requests = current_user.sent_requests
-    @last_five_requests = FriendRequest.where(friend_id: current_user).last_five
-  end
-
   def create
     @friendship = current_user.friend_requests.build(friend_id: params[:friend_id])
     @friend = User.find(params[:friend_id])

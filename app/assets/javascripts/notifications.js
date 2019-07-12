@@ -9,10 +9,10 @@ class Notifications {
     // Checks that the behavior button exists
     if (this.behaviorElement !== null) { 
       this.addClickListener() 
-      this.getNewBehavior()
+      this.getNewNotifications()
 
       // every 5 seconds sends off an ajax request
-      setInterval(() => this.getNewBehavior(), 5000)
+      setInterval(() => this.getNewNotifications(), 10000)
     };
 
 
@@ -23,9 +23,9 @@ class Notifications {
       () => this.handleClick, false);
   }
 
-  getNewBehavior() {
+  getNewNotifications() {
     Rails.ajax({
-      url: `/${this.behavior}.json`,
+      url: "/notifications.json",
       type: "GET",
       dataType: "JSON",
       success: (data) => { this.handleSuccess(data) }
@@ -39,18 +39,18 @@ class Notifications {
       `<a class='dropdown-item' href=${n.url}> ${n.sender.first_name} ${n.sender.last_name} ${n.action} ${n.notifiable.type} </a>`
     );
 
-    items.push(`<a class='dropdown-item count' href='/${this.behavior}'> View all ${this.behavior} </a>`); 
+    items.push(`<a class='dropdown-item count' href='/${this.behavior}'> View all ${this.behavior.split("-").join(" ")} </a>`); 
     if (items.length - 1 > 5) { 
-      this.setCount("5+") 
+      this.setCount("!") 
     } else if (items.length - 1 > 0) {
       this.setCount(items.length - 1)
     };
-    this.items.innerHTML = items;
+    this.items.innerHTML = items.join("");
   };
 
   handleClick(e) {
     Rails.ajax({
-      url: `/${this.behavior}/mark_as_read`,
+      url: "/notifications/mark_as_read",
       type: "POST",
       dataType: "JSON",
     });
@@ -59,20 +59,10 @@ class Notifications {
   setCount(text) {
     this.count.innerText = text;
   };
-
-  countUnread(ary) {
-    let unread_count = 0;
-    ary.forEach(f => { 
-      if (f.read === null) {
-        unread_count += 1
-      }
-    })
-
-    return unread_count;
-  }
 };
 
 document.addEventListener("turbolinks:load", () => {
   new Notifications("notifications");
+  new Notifications("friend-requests");
 });
 
