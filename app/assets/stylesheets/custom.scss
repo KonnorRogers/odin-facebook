@@ -343,9 +343,17 @@ div.birthday.field {
 }
 
 .dropbtn > .count {
-  padding-left: 0.1rem;
+  position: absolute;
 }
 
 .fa-users {
   padding-right: 0.2rem;
+}
+
+.fa-caret-down {
+  padding-left: 0.5rem;
+}
+
+.notifications-btn > .fa-caret-down {
+  padding-left: 0.8rem;
 }

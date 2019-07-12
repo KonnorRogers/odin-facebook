@@ -12,15 +12,20 @@ class Notifications {
       this.getNewNotifications()
 
       // every 5 seconds sends off an ajax request
-      setInterval(() => this.getNewNotifications(), 10000)
+      const ajax = setInterval(() => this.getNewNotifications(), 10000);
+      this.toggleIntervalListener(ajax);
     };
 
 
   };
 
   addClickListener() {
-    this.linkBtn.addEventListener("click", 
-      this.handleClick, false);
+    this.linkBtn.addEventListener("click", this.handleClick, false);
+    this.linkBtn.addEventListener("click", () => this.setCount(""), false)
+  }
+
+  toggleIntervalListener(interval) {
+    this.linkBtn.addEventListener("click", () => clearInterval(interval), false);
   }
 
   getNewNotifications() {
@@ -48,7 +53,6 @@ class Notifications {
     this.items.innerHTML = items.join("");
   };
 
-  // ERROR HERE 
   handleClick(e) {
     Rails.ajax({
       url: "/notifications/mark_as_read",
@@ -66,3 +70,4 @@ document.addEventListener("turbolinks:load", () => {
   new Notifications("notifications");
   new Notifications("friend-requests");
 });
+
