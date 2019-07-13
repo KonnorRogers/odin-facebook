@@ -8,9 +8,9 @@ const removeDropDown = (dropdown, closestString) => {
   window.addEventListener("click", (e) => {
     if (e.target.closest(closestString)) { return false };
 
-    if (dropdown.classList.contains('show')) {
-      dropdown.classList.remove('show');
-    }
+    if (!dropdown.classList.contains('show')) { return false };
+
+    dropdown.classList.remove('show');
   });
 };
 

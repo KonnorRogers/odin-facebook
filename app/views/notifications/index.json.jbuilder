@@ -5,7 +5,14 @@ json.array! @notifications do |notification|
   json.sender notification.sender
   json.action notification.action
   json.notifiable do
-    json.type "a #{notification.notifiable.class.to_s.underscore.humanize.downcase}"
+    json.type "a #{notification.notifiable_type.to_s.underscore.humanize.downcase}"
   end
+
   json.url notifications_path
+
+  if notification.notifiable_type.to_sym == :FriendRequest
+    json.isFriendRequest true
+  else
+    json.isFriendRequest false
+  end
 end
