@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 class NotificationsController < ApplicationController
   def index
-    @notifications = Notification.where(recipient: current_user).unread
+    @all_notifications = Notification.where(recipient: current_user)
+    @notifications = @all_notifications.unread
+    @pending_requests = current_user.received_requests
   end
 
   def mark_as_read
