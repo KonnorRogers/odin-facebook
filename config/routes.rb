@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'posts/create'
+  get 'posts/edit'
+  get 'posts/update'
+  get 'posts/destroy'
   root 'users#index'
 
   devise_for :users
