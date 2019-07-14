@@ -13,7 +13,10 @@
 - [x] A User must accept the Friend Request to become friends.
 - [x] The Friend Request shows up in the notifications section of a User’s navbar.
   * In app notifications are handled via AJAX requests to the 
-    /notifications.json path. Dropdowns and AJAX requests made with jQuery. No bootstrap used.
+    /notifications.json path. Requests made every 10 seconds.
+    Requests are disabled while using the dropdown, dropdowns make an automatic AJAX
+    post request to /notifications/mark_as_read when clicked
+    Dropdowns and AJAX requests made with jQuery. No bootstrap used.
 - [ ] Users can create Posts (text only to start).
 - [ ] Users can Like Posts.
 - [ ] Users can Comment on Posts.

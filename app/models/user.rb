@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  ####### Friendship Related relationships
   # Handles when a user REQUESTS another user
   has_many :friend_requests, dependent: :destroy
   has_many :sent_requests, through: :friend_requests, source: :friend
@@ -18,8 +19,12 @@ class User < ApplicationRecord
                                  foreign_key: 'friend_id',
                                  dependent: :destroy
   has_many :inverse_friends, through: :inverse_friendships, source: :user
+  ####### END Friendship Related relationships
 
   has_many :notifications, foreign_key: 'recipient_id'
+  has_many :posts
+  has_many :likes, through: :posts
+  has_many :comments, through: :posts
 
   GENDERS = %i[male female other].freeze
 
