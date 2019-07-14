@@ -4,8 +4,7 @@
 
 [I created an issue of how I solved POSTGRES issues in UBUNTU](https://github.com/ParamagicDev/odin-facebook/issues/1)
 
-## OdinProjec Task list
-
+## OdinProject Task list
 
 - [x] Use Postgresql for your database from the beginning (not sqlite3), that way your deployment to Heroku will go much more smoothly. See the Heroku Docs for setup info.
 - [x] Users must sign in to see anything except the sign in page.
@@ -13,6 +12,8 @@
 - [x] Users can send Friend Requests to other Users.
 - [x] A User must accept the Friend Request to become friends.
 - [x] The Friend Request shows up in the notifications section of a User’s navbar.
+  * In app notifications are handled via AJAX requests to the 
+    /notifications.json path. Dropdowns and AJAX requests made with jQuery. No bootstrap used.
 - [ ] Users can create Posts (text only to start).
 - [ ] Users can Like Posts.
 - [ ] Users can Comment on Posts.
