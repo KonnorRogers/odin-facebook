@@ -1,7 +1,5 @@
-logged in as: <%= current_user.full_name %>
-
-<%# <%= render "posts/form" %1> %>
-<%# <%= render "posts/feed", posts: @posts %1> %>
+<%= render "posts/form" %>
+<%= render "posts/feed", posts: @posts %>
 <%= render "friendships/unadded", users: @users %>
 <%= render "friendships/friends", friends: @friends %>
 <%= render "friend_requests/pending", pending_requests: @received_requests %>
