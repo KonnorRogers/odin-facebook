@@ -21,8 +21,8 @@ class User < ApplicationRecord
   has_many :inverse_friends, through: :inverse_friendships, source: :user
   ####### END Friendship Related relationships
 
-  has_many :notifications, foreign_key: 'recipient_id'
-  has_many :posts, foreign_key: 'author_id'
+  has_many :notifications, foreign_key: 'recipient_id', dependent: :destroy
+  has_many :posts, foreign_key: 'author_id', dependent: :destroy
   has_many :likes, through: :posts
   has_many :comments, through: :posts
 
