@@ -1,4 +1,6 @@
-<%= form_with(model: @post, url: posts_path, local: true) do |f| %>
+<%= form_with(model: post, url: posts_path, local: true) do |f| %>
+  <%= render "shared/error_messages", object: post %>
+
   <%= f.text_field :content, placeholder: "What's on your mind?" %> 
   <%= f.submit "Create post" %>
 <% end %>

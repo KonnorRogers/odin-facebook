@@ -3,12 +3,12 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      flash.now[:success] = "Post created"
-      redirect_to root_url
+      flash[:success] = "Post successfully created"
     else
-      flash.now[:error] = "Post did not submit"
-      render 'users/index'
+      flash[:error] = "Post did not submit"
     end
+
+    redirect_to root_url
   end
 
   def edit
