@@ -8,7 +8,6 @@ $gray: #e9ebee;
 
 // universal
 
-
 body {
   text-align: center;
 }
@@ -49,6 +48,12 @@ body {
   padding: 0;
   padding: 1rem 0;
   background-color: $gray;
+}
+
+textarea {
+  resize: none;
+  text-align: left;
+  padding: 1.5rem;
 }
 
 
@@ -357,3 +362,4 @@ div.birthday.field {
 .notifications-btn > .fa-caret-down {
   padding-left: 0.8rem;
 }
+
