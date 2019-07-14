@@ -22,7 +22,7 @@ class User < ApplicationRecord
   ####### END Friendship Related relationships
 
   has_many :notifications, foreign_key: 'recipient_id'
-  has_many :posts
+  has_many :posts, foreign_key: 'author_id'
   has_many :likes, through: :posts
   has_many :comments, through: :posts
 

@@ -47,10 +47,11 @@ ActiveRecord::Schema.define(version: 2019_07_14_143523) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "author_id"
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,5 +70,4 @@ ActiveRecord::Schema.define(version: 2019_07_14_143523) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "posts", "users"
 end
