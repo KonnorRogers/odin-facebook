@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :users
   resources :friendships, only: %i[create destroy index]
 
-  resources :friend_requests, only: %i[create destroy]
+  resources :friend_requests, only: %i[create destroy index]
 
   # allow notifications to be marked as read
   resources :notifications, only: [:index] do

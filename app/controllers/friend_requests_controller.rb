@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class FriendRequestsController < ApplicationController
+  def index
+
+  end
   def create
     @friendship = current_user.friend_requests.build(friend_id: params[:friend_id])
     @friend = User.find(params[:friend_id])

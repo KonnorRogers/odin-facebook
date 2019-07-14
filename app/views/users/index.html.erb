@@ -1,6 +1,8 @@
 logged in as: <%= current_user.full_name %>
 
-<%= render "shared/unadded_users", users: @users %>
-<%= render "shared/friends", friends: @friends %>
-<%= render "shared/pending_requests", pending_requests: @received_requests %>
-<%= render "shared/sent_requests", sent_requests: @sent_requests %>
+<%# <%= render "posts/form" %1> %>
+<%# <%= render "posts/feed", posts: @posts %1> %>
+<%= render "friendships/unadded", users: @users %>
+<%= render "friendships/friends", friends: @friends %>
+<%= render "friend_requests/pending", pending_requests: @received_requests %>
+<%= render "friend_requests/sent", sent_requests: @sent_requests %>
