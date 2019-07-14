@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     if user_signed_in?
+      @post = current_user.posts.build
       @users = User.where.not(id: current_user.id).reject do |user|
         user.friend?(current_user) || user.pending_request?(current_user)
       end
