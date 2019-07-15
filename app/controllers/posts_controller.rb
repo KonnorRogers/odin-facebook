@@ -20,6 +20,10 @@ class PostsController < ApplicationController
   def destroy
   end
 
+  def show
+
+  end
+
   private
 
   def post_params
