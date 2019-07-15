@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       flash[:error] = "Post did not submit"
     end
 
-    redirect_to root_url
+    # redirect_to root_url
   end
 
   def edit
