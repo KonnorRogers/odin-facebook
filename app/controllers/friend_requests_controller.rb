@@ -2,8 +2,15 @@
 
 class FriendRequestsController < ApplicationController
   def index
-
+    respond_to do |format|
+      format.html { @received_requests = current_user.received_requests }
+      format.json do
+        @received_requests = Notification.where(recipient_id: current_user.id,
+                                                notifiable_type: 'FriendRequest')
+      end
+    end
   end
+
   def create
     @friendship = current_user.friend_requests.build(friend_id: params[:friend_id])
     @friend = User.find(params[:friend_id])
@@ -18,7 +25,6 @@ class FriendRequestsController < ApplicationController
       format.js
     end
   end
-
 
   def destroy
     @friend_request = current_user.friend_requests.find_by(friend_id: params[:id])

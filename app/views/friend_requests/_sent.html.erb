@@ -1,7 +1,7 @@
 <h2> Sent requests </h2>
 <% sent_requests.each do |friend| %>
   <p>
-  <%= friend.full_name %>
-  <%= link_to "Cancel request", friend_request_path(friend), method: :delete %>
+    <%= friend.full_name %>
+    <%= link_to "Cancel request", friend_request_path(friend), method: :delete %>
   </p>
 <% end %>

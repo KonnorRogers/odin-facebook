@@ -51,8 +51,10 @@ class Notifications {
   }
 
   getNewNotifications() {
+    let url = `${this.behavior}.json`
+    if (url.includes("-")) { url = url.split("-").join("_") }
     Rails.ajax({
-      url: "/notifications.json",
+      url: url,
       type: "GET",
       dataType: "JSON",
       success: (data) => { this.handleSuccess(data) }
@@ -62,8 +64,7 @@ class Notifications {
 
   // populates the dropdown menu
   handleSuccess(data) {
-    const filteredData = this.filterData(data);
-    const items = filteredData.map(n => 
+    const items = data.map(n => 
       `<a class='dropdown-item' href=${n.url}> ${n.sender.first_name} ${n.sender.last_name} ${n.action} ${n.notifiable.type} </a>`
     );
 
@@ -87,21 +88,10 @@ class Notifications {
   setCount(text) {
     this.count.innerText = text;
   };
-
-  filterData(data) {
-    return data.filter(n => n.isFriendRequest === false)
-  }
-};
-
-class FriendRequests extends Notifications {
-  // Overrides the original filterData so that it only returns friendRequests
-  filterData(data) {
-    return data.filter(n => n.isFriendRequest === true);
-  };
 };
 
 document.addEventListener("turbolinks:load", () => {
   new Notifications("notifications");
-  new FriendRequests("friend-requests");
+  new Notifications("friend-requests");
 });
 
