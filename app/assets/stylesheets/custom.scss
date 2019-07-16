@@ -362,3 +362,23 @@ div.birthday.field {
   padding-left: 0.8rem;
 }
 
+// Feed items
+
+.feed {
+  text-align: left;
+  display: flex;
+  justify-content: center;
+}
+
+.feed-item {
+  margin-top: 1rem;
+  border: 2px solid $light-purple;
+  width: 50%;
+}
+
+.feed-name, .feed-content, .feed-post-time {
+  padding: 1rem;
+}
+
+
+
