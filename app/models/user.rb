@@ -51,6 +51,19 @@ class User < ApplicationRecord
                        message: '%{value} is not a valid gender'
                      }
 
+  def all_friends
+    friends + inverse_friends
+  end
+
+  def all_friend_requests
+    received_requests + sent_requests
+  end
+
+  def feed
+    ids = all_friends.pluck(:id) << id
+    Post.where(author_id: ids)
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -63,11 +76,4 @@ class User < ApplicationRecord
     all_friend_requests.include?(friend)
   end
 
-  def all_friends
-    friends + inverse_friends
-  end
-
-  def all_friend_requests
-    received_requests + sent_requests
-  end
 end
