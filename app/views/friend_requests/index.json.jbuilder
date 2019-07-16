@@ -1,1 +1,1 @@
-json.partial! 'shared/notifications', notifications: @received_requests
+json.partial! 'shared/notifications', notifications: @unread_requests

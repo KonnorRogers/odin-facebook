@@ -1,12 +1,12 @@
 <%= form_with(model: resource, as: resource_name, url: session_path(resource_name), local: true, class: 'login-form') do |f| %>
   <div class="login-selection">
     <%= f.label :email, class: 'login-label' %>
-    <%= f.email_field :email, class: 'login-field' %>
+    <%= f.email_field :email, class: 'login-field', id: "nav-email" %>
   </div>
 
   <div class="login-selection">
     <%= f.label :password, class: 'login-label' %>
-    <%= f.password_field :password, class: 'login-field' %>
+    <%= f.password_field :password, class: 'login-field', id: "nav-password" %>
   </div>
 
   <%= f.submit "Log In", class: "btn btn-purple" %>

@@ -5,8 +5,9 @@ class FriendRequestsController < ApplicationController
     respond_to do |format|
       format.html { @received_requests = current_user.received_requests }
       format.json do
-        @received_requests = Notification.where(recipient_id: current_user.id,
-                                                notifiable_type: 'FriendRequest')
+        @unread_requests = Notification.where(
+          recipient_id: current_user.id
+        ).friend_requests.unread
       end
     end
   end
@@ -39,7 +40,9 @@ class FriendRequestsController < ApplicationController
   end
 
   def mark_as_read
-    @unread_requests = FriendRequest.where(friend_id: current_user).unread
+    @unread_requests = Notification.where(
+      recipient: current_user,
+    ).friend_requests.unread
     @unread_requests.update_all(read_at: Time.zone.now)
     render json: { success: true }
   end
