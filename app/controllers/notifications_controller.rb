@@ -2,9 +2,9 @@
 
 class NotificationsController < ApplicationController
   def index
-    @notifications = Notification.where(recipient_id: current_user.id).where.not(
-                                        notifiable_type: 'FriendRequest')
+    @notifications = Notification.where(recipient_id: current_user.id).non_friend_requests
     respond_to do |format|
+      format.html { @notifications }
       format.json { @notifications.unread }
     end
   end

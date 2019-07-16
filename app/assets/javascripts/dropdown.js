@@ -29,6 +29,7 @@ document.addEventListener('turbolinks:load', () => {
   for (let i = 0; i < btns.length; i++) {
     btn = btns[i];
     dropdown = document.querySelector(dropDowns[i]);
+    if (dropdown === null) { continue };
 
     addDropdown(dropdown, btn);
     removeDropDown(dropdown, btn);

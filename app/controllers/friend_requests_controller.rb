@@ -41,7 +41,7 @@ class FriendRequestsController < ApplicationController
 
   def mark_as_read
     @unread_requests = Notification.where(
-      recipient: current_user,
+      recipient: current_user
     ).friend_requests.unread
     @unread_requests.update_all(read_at: Time.zone.now)
     render json: { success: true }

@@ -7,4 +7,5 @@ class Notification < ApplicationRecord
 
   scope :unread, -> { where(read_at: nil) }
   scope :friend_requests, -> { where(notifiable_type: 'FriendRequest') }
+  scope :non_friend_requests, -> { where.not(notifiable_type: 'FriendRequest') }
 end
