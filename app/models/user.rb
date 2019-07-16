@@ -34,7 +34,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          authentication_keys: [:email]
 
-  VALID_NAME_REGEXP = /\A[A-Za-z]+\z/.freeze
+  VALID_NAME_REGEXP = /\A[A-Za-z\ ]+\z/.freeze
 
   %i[first_name last_name].each do |attr|
     validates attr, presence: true,

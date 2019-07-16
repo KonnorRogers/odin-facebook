@@ -60,4 +60,12 @@ class UserTest < ActiveSupport::TestCase
       @user.save
     end
   end
+
+  test 'should validate a user with spaces in their name' do
+    assert_difference 'User.count', 1 do
+      @user.first_name = 'hi there paul'
+      @user.last_name = 'sup doc'
+      @user.save
+    end
+  end
 end
