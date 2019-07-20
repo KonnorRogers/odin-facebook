@@ -1,1 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  author: bob
+  content: "Hi there my names Bob!"
+
+two:
+  author: tabitha
+  content: "hola como estas"
