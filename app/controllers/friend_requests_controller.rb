@@ -13,8 +13,8 @@ class FriendRequestsController < ApplicationController
   end
 
   def create
-    @friendship = current_user.friend_requests.build(friend_id: params[:friend_id])
     @friend = User.find(params[:friend_id])
+    @friendship = current_user.friend_requests.build(friend: @friend)
     if @friendship.save
       flash[:notice] = "Friend request sent to #{@friend.full_name}"
     else
@@ -28,8 +28,8 @@ class FriendRequestsController < ApplicationController
   end
 
   def destroy
-    @friend_request = current_user.friend_requests.find_by(friend_id: params[:id])
     @friend = User.find(params[:id])
+    @friend_request = current_user.friend_requests.find_by(friend: @friend)
     @friend_request.destroy
     flash[:notice] = "Cancelled friend request to #{@friend.full_name}"
 
@@ -43,6 +43,7 @@ class FriendRequestsController < ApplicationController
     @unread_requests = Notification.where(
       recipient: current_user
     ).friend_requests.unread
+
     @unread_requests.update_all(read_at: Time.zone.now)
     render json: { success: true }
   end
