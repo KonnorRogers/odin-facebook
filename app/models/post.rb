@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: "User"
 
+  belongs_to :likable, polymorphic: true
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
