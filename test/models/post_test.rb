@@ -15,7 +15,6 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test 'should not create a post if length > 140' do
-
     assert_no_difference 'Post.count' do
       content = 'x' * 141
       @bob.posts.create(content: content)
@@ -23,8 +22,10 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test 'should not create a post if content is blank' do
-    content = '' * 100
-    @bob.posts.create(content: content)
+    assert_no_difference 'Post.count' do
+      content = '' * 100
+      @bob.posts.create(content: content)
+    end
   end
 
   test 'should show the post fixture after the created post' do
