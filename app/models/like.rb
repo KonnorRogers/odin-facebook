@@ -1,7 +1,7 @@
 class Like < ApplicationRecord
   belongs_to :user
-  belongs_to :post
+  belongs_to :likeable, polymorphic: true
 
   # Validates that the user has only liked the post 1 time
-  validates :user, uniqueness: { scope: :post }
+  validates :user, uniqueness: { scope: :likeable }
 end
