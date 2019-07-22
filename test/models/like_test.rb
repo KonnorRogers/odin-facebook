@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class LikeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'should add a like to the post' do
+
+  end
 end
