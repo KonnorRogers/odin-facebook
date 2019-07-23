@@ -75,5 +75,4 @@ class User < ApplicationRecord
   def pending_request?(friend)
     all_friend_requests.include?(friend)
   end
-
 end
