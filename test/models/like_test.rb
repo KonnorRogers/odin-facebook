@@ -27,5 +27,19 @@ class LikeTest < ActiveSupport::TestCase
     assert_difference 'Like.count', -1 do
       @post.likes.delete(@like)
     end
+
+    assert_difference 'Like.count', 1 do
+      @like = @post.likes.create(user: @user)
+    end
+  end
+
+  test 'should not add the like if the user already liked the post' do
+    assert_difference 'Like.count', 1 do
+      @post.likes.create(user: @user)
+    end
+
+    assert_no_difference 'Like.count' do
+      @post.likes.create(user: @user)
+    end
   end
 end
