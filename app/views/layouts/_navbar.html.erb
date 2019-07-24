@@ -1,7 +1,7 @@
 <ul class="navbar">
   <li class="home"><%= link_to "Home", root_url %></li>
   <div class="dropdown" data-behavior="friend-requests">
-    <button class="dropbtn friend-requests-btn" data-behavior="friend-requests-link">
+    <button class="dropbtn friend-requests-btn" id="drop-btn" data-behavior="friend-requests-link">
       <%= fa_icon "users" %><span class="count" data-behavior="friend-requests-count"></span>
       <%= fa_icon "caret-down" %>
     </button>
@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="dropdown" data-behavior="notifications">
-    <button class="dropbtn notifications-btn" data-behavior="notifications-link">
+    <button class="dropbtn notifications-btn" id="drop-btn" data-behavior="notifications-link">
       <%= fa_icon "bell" %> <span class="count" data-behavior="notifications-count"> </span>
       <%= fa_icon "caret-down" %>
     </button>
@@ -18,14 +18,6 @@
     </div>
   </div>
 
-  <div class="dropdown">
-    <button class="dropbtn">
-      <%= fa_icon "caret-down" %>
-    </button>
-
-    <div class="dropdown-content">
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-    </div>
-  </div>
+  <li class="logout"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 </ul>
 
