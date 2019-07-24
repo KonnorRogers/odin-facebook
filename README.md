@@ -17,8 +17,8 @@
     Requests are disabled while using the dropdown, dropdowns make an automatic AJAX
     post request to /notifications/mark_as_read when clicked
     Dropdowns and AJAX requests made with jQuery. No bootstrap used.
-- [ ] Users can create Posts (text only to start).
-- [ ] Users can Like Posts.
+- [x] Users can create Posts (text only to start).
+- [x] Users can Like Posts.
 - [ ] Users can Comment on Posts.
 - [ ] Posts should always display with the post content, author, comments and likes.
 - [ ]  Treat the Posts Index page like the real Facebook’s “Timeline” feature – show all the recent posts from the current user and users she is friends with.
