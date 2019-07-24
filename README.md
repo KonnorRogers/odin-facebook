@@ -1,5 +1,10 @@
 # README
 
+## CURRENT DEVELOPMENT
+
+This repo is currently under development.
+For most recent changes please refer to the [staging branch](https://github.com/ParamagicDev/odin-facebook/tree/staging)
+
 ## Setting up POSTGRESQL
 
 [I created an issue of how I solved POSTGRES issues in UBUNTU](https://github.com/ParamagicDev/odin-facebook/issues/1)
