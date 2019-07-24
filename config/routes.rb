@@ -16,15 +16,30 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :users
+  resources :users, only: %i[show index]
   resources :friendships, only: %i[create destroy index]
+
+  # allows for marking a notifications as read
+  # POST /friend_requests/mark_as_read
   resources :friend_requests, only: %i[create destroy index] do
     collection { post :mark_as_read }
   end
-  resources :posts, only: %i[create destroy update edit show]
 
-  # allow notifications to be marked as read
   resources :notifications, only: [:index] do
     collection { post :mark_as_read }
   end
+
+  # Allows comments to be referrable from posts
+  # GET /posts/:post_id/comments/:comment_id
+  resources :posts, only: %i[create destroy update edit show] do
+    resources :comments, only: %i[show]
+  end
+
+  # allows nested comments ie:
+  # GET /comments/:comment_id/comments(:format)
+  resources :comments, only: %i[create destroy edit show] do
+    resources :comments, only: %i[show]
+  end
+
+  # allow notifications to be marked as read
 end
