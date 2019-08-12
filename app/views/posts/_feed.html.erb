@@ -4,6 +4,12 @@
       <p class="feed-name"><%= f.author.full_name %></p>
       <p class="feed-post-time"> <%= time_ago_in_words(f.created_at).gsub("about ", "") + " ago" %></p>
       <p class="feed-content"><%= f.content %></p>
+      <% f.comments.each do |c| %>
+        <%= c.content %>
+        <% c.comments.each do |c_nested| %>
+          <%= c_nested.content %>
+        <% end %>
+      <% end %>
     </div>
   <% end %>
 </div>
