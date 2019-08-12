@@ -1,7 +1,7 @@
 <div class="feed">
   <% feed.each do |f| %>
     <div class="feed-item">
-      <p class="feed-name">Posted by: <%= f.author.full_name %></p>
+      <p class="feed-name"><%= f.author.full_name %></p>
       <p class="feed-post-time"> <%= time_ago_in_words(f.created_at).gsub("about ", "") + " ago" %></p>
       <p class="feed-content"><%= f.content %></p>
     </div>

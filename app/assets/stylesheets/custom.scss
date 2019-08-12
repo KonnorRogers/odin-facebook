@@ -367,6 +367,8 @@ div.birthday.field {
 .feed {
   text-align: left;
   display: flex;
+  flex-direction: flex-column;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -377,8 +379,10 @@ div.birthday.field {
 }
 
 .feed-name, .feed-content, .feed-post-time {
-  padding: 1rem;
+  padding-left: 1rem;
 }
 
-
+.feed-content {
+  padding: 1rem;
+}
 
