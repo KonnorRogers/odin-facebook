@@ -24,3 +24,4 @@ genders = %w[male female other]
     birthday: Date.today - 19.years - num.years
   )
 end
+
