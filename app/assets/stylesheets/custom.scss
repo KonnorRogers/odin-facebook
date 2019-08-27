@@ -48,6 +48,7 @@ body {
   padding: 0;
   padding: 1rem 0;
   background-color: $gray;
+  min-height: calc(100vh - 8rem);
 }
 
 textarea {
@@ -162,7 +163,7 @@ div.login-box {
   width: 40%;
   padding: 2rem;
   div {
-    padding: 1rem; 
+    padding: 1rem;
   }
   a {
     display: block;
@@ -342,8 +343,8 @@ div.birthday.field {
 
 .show {display: block;}
 
-.dropdown-item { 
-  font-size: small; 
+.dropdown-item {
+  font-size: small;
 }
 
 .dropbtn > .count {
@@ -372,17 +373,21 @@ div.birthday.field {
   justify-content: center;
 }
 
-.feed-item {
-  margin-top: 1rem;
+.post-item {
   border: 2px solid $light-purple;
   width: 50%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  text-align: left;
 }
 
-.feed-name, .feed-content, .feed-post-time {
+// Posts
+
+.post-name, .post-content, .post-time {
   padding-left: 1rem;
 }
 
-.feed-content {
+.post-content {
   padding: 1rem;
 }
 

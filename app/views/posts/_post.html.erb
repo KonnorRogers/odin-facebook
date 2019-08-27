@@ -1,0 +1,11 @@
+<div class="post-item">
+  <p class="post-name">Posted by: <%= post.author.full_name %></p>
+  <p class="post-time">Posted: <%= time_ago_in_words(post.created_at).gsub("about ", "") + " ago" %></p>
+  <p class="post-content"><%= post.content %></p>
+  <% post.comments.each do |c| %>
+    <%= c.content %>
+    <%# <% c.comments.each do |c_nested| %1> %>
+    <%#   <%= c_nested.content %1> %>
+    <%# <% end %1> %>
+<% end %>
+</div>

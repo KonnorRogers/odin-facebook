@@ -17,7 +17,7 @@ For most recent changes please refer to the [staging branch](https://github.com/
 - [x] Users can send Friend Requests to other Users.
 - [x] A User must accept the Friend Request to become friends.
 - [x] The Friend Request shows up in the notifications section of a User’s navbar.
-  * In app notifications are handled via AJAX requests to the 
+  * In app notifications are handled via AJAX requests to the
     /notifications.json path. Requests made every 10 seconds.
     Requests are disabled while using the dropdown, dropdowns make an automatic AJAX
     post request to /notifications/mark_as_read when clicked
@@ -26,7 +26,7 @@ For most recent changes please refer to the [staging branch](https://github.com/
 - [x] Users can Like Posts.
 - [x] Users can Comment on Posts.
 - [x] Posts should always display with the post content, author, comments and likes.
-- [ ]  Treat the Posts Index page like the real Facebook’s “Timeline” feature – show all the recent posts from the current user and users she is friends with.
+- [x]  Treat the Posts Index page like the real Facebook’s “Timeline” feature – show all the recent posts from the current user and users she is friends with.
 - [ ]  Users can create a Profile with a Photo (just start by using the Gravatar image like you did in the Rails Tutorial).
 - [ ]  The User Show page contains their Profile information, photo, and Posts.
 - [ ]  The Users Index page lists all users and buttons for sending Friend Requests to those who are not already friends or who don’t already have a pending request.
