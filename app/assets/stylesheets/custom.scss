@@ -58,6 +58,10 @@ textarea {
   margin-bottom: 1rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 // navbar
 
 .navbar {
@@ -374,16 +378,19 @@ div.birthday.field {
   margin: 0 auto;
 }
 
+// Posts
+
+.post-container {
+  width: 100%;
+}
 
 .post-item {
   border: 2px solid $light-purple;
   margin: 0 auto;
-  width: 50%;
+  width: 35%;
   margin-top: 1rem;
   text-align: left;
 }
-
-// Posts
 
 .post-item > * {
   padding-left: 1rem;
@@ -394,9 +401,31 @@ div.birthday.field {
   margin-top: -1rem;
 }
 
-.post-content {
+.post-links, .post-counts {
+  display: flex;
+  flex: auto;
+  flex-wrap: nowrap;
+  justify-content: center;
+  text-align: center;
+  align-items: baseline;
+  margin: 0 auto;
+  padding-right: 0;
 }
 
-.post-likes {
-
+.post-counts {
+  font-size: small;
+  padding: 0;
 }
+
+.post-comments-count {
+  text-align: right;
+}
+
+.post-likes-count {
+  text-align: left;
+}
+
+.post-links > *, .post-counts > * {
+  width: 48%;
+}
+
