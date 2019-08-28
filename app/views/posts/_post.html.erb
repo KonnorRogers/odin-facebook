@@ -1,11 +1,24 @@
+
 <div class="post-item">
-  <p class="post-name">Posted by: <%= post.author.full_name %></p>
-  <p class="post-time">Posted: <%= time_ago_in_words(post.created_at).gsub("about ", "") + " ago" %></p>
+  <p class="post-author-picture"></p>
+  <p class="post-name"><%= post.author.full_name %></p>
+  <p class="post-time"><%= time_ago_in_words(post.created_at).gsub("about ", "") + " ago" %></p>
   <p class="post-content"><%= post.content %></p>
-  <% post.comments.each do |c| %>
-    <%= c.content %>
-    <%# <% c.comments.each do |c_nested| %1> %>
-    <%#   <%= c_nested.content %1> %>
-    <%# <% end %1> %>
-<% end %>
+  <p class="post-likes-count">
+    <% if post.likes.count > 0 %>
+      <a><%= fa_icon 'thumbs-up' %></a>
+      <a><%= post.likes.count %></a>
+    <% end %>
+  </p>
+  <p class="post-thumbs-up">
+    <a><%= fa_icon 'thumbs-up' %></a>
+  </p>
+  <div class="post-write-comment">
+  </div>
+  <div class="post-comments">
+    <% post.comments.each do |c| %>
+      <%= c.content %>
+    <% end %>
+  </div>
 </div>
+

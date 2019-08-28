@@ -371,23 +371,32 @@ div.birthday.field {
   flex-direction: flex-column;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 auto;
 }
+
 
 .post-item {
   border: 2px solid $light-purple;
-  width: 50%;
   margin: 0 auto;
+  width: 50%;
   margin-top: 1rem;
   text-align: left;
 }
 
 // Posts
 
-.post-name, .post-content, .post-time {
+.post-item > * {
   padding-left: 1rem;
 }
 
-.post-content {
-  padding: 1rem;
+.post-time {
+  font-size: x-small;
+  margin-top: -1rem;
 }
 
+.post-content {
+}
+
+.post-likes {
+
+}
