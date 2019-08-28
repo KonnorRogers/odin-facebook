@@ -25,21 +25,24 @@ Rails.application.routes.draw do
     collection { post :mark_as_read }
   end
 
+  # allow notifications to be marked as read
   resources :notifications, only: [:index] do
     collection { post :mark_as_read }
   end
 
   # Allows comments to be referrable from posts
   # GET /posts/:post_id/comments/:comment_id
+  # GET /posts/:post_id/likes/:like_id
   resources :posts, only: %i[create destroy update edit show] do
     resources :comments, only: %i[show]
+    resources :likes, only: %i[show]
   end
 
-  # allows nested comments ie:
+  # allows nested comments / likes ie:
   # GET /comments/:comment_id/comments(:format)
+  # GET /comments/:like_id/likes(:format)
   resources :comments, only: %i[create destroy edit show] do
     resources :comments, only: %i[show]
+    resources :likes, only: %i[show]
   end
-
-  # allow notifications to be marked as read
 end
