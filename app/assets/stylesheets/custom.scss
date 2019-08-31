@@ -429,3 +429,18 @@ div.birthday.field {
   width: 48%;
 }
 
+.post-links, .post-links > * > a {
+  color: $dark-purple;
+}
+
+.post-like-link {
+  border-right: 2px solid gray;
+}
+
+.post-links > * > a {
+  padding: 0.2rem 1rem;
+  &:hover {
+    background-color: rgba($dark-purple, 0.8);
+    color: white;
+  }
+}
