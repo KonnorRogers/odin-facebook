@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   # GET /posts/:post_id/likes/:like_id
   resources :posts, only: %i[create destroy update edit show] do
     resources :comments, only: %i[show]
-    resources :likes, only: %i[show]
+    resources :likes, only: %i[create destroy]
   end
 
   # allows nested comments / likes ie:
@@ -43,6 +43,6 @@ Rails.application.routes.draw do
   # GET /comments/:like_id/likes(:format)
   resources :comments, only: %i[create destroy edit show] do
     resources :comments, only: %i[show]
-    resources :likes, only: %i[show]
+    resources :likes, only: %i[create destroy]
   end
 end

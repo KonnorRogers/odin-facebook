@@ -21,9 +21,10 @@
     </div>
     <div class="post-links">
       <p class="post-like-link">
-        <%= link_to "#" do %>
-          <%= fa_icon "thumbs-up" %>
-          Like
+        <% if user_signed_in? && current_user.likes?(post) %>
+          <%= link_to "Unlike", post_like_path(post_id: post, id: post.id), method: :delete, remote: true %>
+        <% else %>
+          <%= link_to "Like", post_likes_path(post), method: :post, remote: true %>
         <% end %>
       </p>
       <div class="post-write-comment">

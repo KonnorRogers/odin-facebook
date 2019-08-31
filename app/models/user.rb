@@ -75,4 +75,8 @@ class User < ApplicationRecord
   def pending_request?(friend)
     all_friend_requests.include?(friend)
   end
+
+  def likes?(post)
+    post.likes.where(user_id: id).any?
+  end
 end

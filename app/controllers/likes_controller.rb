@@ -1,27 +1,27 @@
 class LikesController < ApplicationController
-  before_action :find_post
+  before_action :set_post
 
   def create
-    @post.likes.create(user_id: current_user)
+    @post.likes.find_or_create_by(user_id: current_user.id)
 
     respond_to do |fmt|
       fmt.html { redirect_to root_url }
-      fmt.js
+      fmt.json
     end
   end
 
-  def delete
-    @post.likes.find(params[:id]).destroy
+  def destroy
+    @post.likes.where(user_id: current_user.id).destroy_all
 
     respond_to do |fmt|
       fmt.html { redirect_to root_url }
-      fmt.js
+      fmt.json { render status: :created }
     end
   end
 
   private
 
-  def find_post
+  def set_post
     @post = Post.find(params[:post_id])
   end
 end
