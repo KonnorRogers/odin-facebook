@@ -425,7 +425,7 @@ div.birthday.field {
   text-align: left;
 }
 
-.post-links > *, .post-counts > * {
+.post-counts > * {
   width: 48%;
 }
 
@@ -435,6 +435,11 @@ div.birthday.field {
 
 .post-like-link {
   border-right: 2px solid gray;
+  width: 25%;
+}
+
+.post-write-comment {
+  width: 75%;
 }
 
 .post-links > * > a {
