@@ -8,7 +8,7 @@ class Notifications {
     this.timer = false;
 
     // Checks that the behavior button exists
-    if (this.behaviorElement !== null) { 
+    if (this.behaviorElement !== null) {
       this.getNewNotifications();
       this.addClickListener();
 
@@ -26,22 +26,22 @@ class Notifications {
   toggleIntervalListener(interval) {
     // When the button is clicked, tells you that the interval is no longer
     // running in the background
-    this.linkBtn.addEventListener("click", () => { 
+    this.linkBtn.addEventListener("click", () => {
       clearInterval(this.timer)
       this.turnOffTimer();
     }, false);
 
     // IF anywhere outside the dropdown is clicked, restart the interval timer
-    addEventListener("click", (e) => { 
+    addEventListener("click", (e) => {
       const dropdown = e.target.closest(`[data-behavior='${this.behavior}']`)
-      if (dropdown === null && this.timer === false) { 
+      if (dropdown === null && this.timer === false) {
         return this.turnOnTimer();
       };
     }, false);
   }
 
   turnOnTimer() {
-    return this.timer = setInterval(() => this.getNewNotifications(), 5000)
+    return this.timer = setInterval(() => this.getNewNotifications(), 10000)
   }
 
   turnOffTimer() {
@@ -61,13 +61,13 @@ class Notifications {
 
   // populates the dropdown menu
   handleSuccess(data) {
-    const items = data.map(n => 
+    const items = data.map(n =>
       `<a class='dropdown-item' href='/${this.url()}'> ${n.sender.first_name} ${n.sender.last_name} ${n.action} ${n.notifiable.type} </a>`
     );
 
-    items.push(`<a class='dropdown-item count' href='/${this.url()}'> View all ${this.behavior.split("-").join(" ")} </a>`); 
-    if (items.length - 1 > 5) { 
-      this.setCount("!") 
+    items.push(`<a class='dropdown-item count' href='/${this.url()}'> View all ${this.behavior.split("-").join(" ")} </a>`);
+    if (items.length - 1 > 5) {
+      this.setCount("!")
     } else if (items.length - 1 > 0) {
       this.setCount(items.length - 1)
     };

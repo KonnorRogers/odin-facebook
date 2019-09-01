@@ -449,3 +449,37 @@ div.birthday.field {
     color: white;
   }
 }
+
+// Pagination
+
+div.pagination {
+  margin: 2rem;
+}
+div.pagination > * {
+  font-style: normal;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid blueviolet;
+  color: blueviolet;
+
+  &:hover, &:focus {
+    color: black;
+    border-color: black;
+  }
+}
+
+div.pagination > .disabled {
+  color: black;
+  border-color: black;
+}
+
+div.pagination > .current {
+  color: white;
+  background-color: $dark-purple;
+
+  &:hover, &:focus {
+    border-color: blueviolet;
+    color: white;
+  }
+}
+
+

@@ -1,5 +1,9 @@
 <%= render "posts/form", post: @post %>
-<%= render "feed", feed: @feed %>
+
+<%= will_paginate @feed %>
+  <%= render "feed", feed: @feed %>
+<%= will_paginate @feed %>
+
 <%= render "friendships/unadded", users: @users %>
 <%= render "friendships/friends", friends: @friends %>
 <%= render "friend_requests/pending", pending_requests: @received_requests %>
