@@ -1,0 +1,2 @@
+Rails.$('#post_<%= @post.id %>_likes')[0].innerHTML = ("<%= j render partial: 'posts/likes', locals: {post: @post} %>");
+Rails.$('#post_<%= @post.id %>_likes_count')[0].innerHTML = ("<%= j render partial: 'posts/likes_count', locals: {post: @post} %>");

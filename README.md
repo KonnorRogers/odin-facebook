@@ -23,7 +23,8 @@ For most recent changes please refer to the [staging branch](https://github.com/
     post request to /notifications/mark_as_read when clicked
     Dropdowns and AJAX requests made with jQuery. No bootstrap used.
 - [x] Users can create Posts (text only to start).
-- [ ] Users can Like Posts.
+- [x] Users can Like Posts.
+  * Liking posts handled via AJAX
 - [ ] Users can Comment on Posts.
 - [x] Posts should always display with the post content, author, comments and likes.
 - [x]  Treat the Posts Index page like the real Facebook’s “Timeline” feature – show all the recent posts from the current user and users she is friends with.

@@ -6,10 +6,22 @@
     <p class="post-time"><%= time_ago_in_words(post.created_at).gsub("about ", "") + " ago" %></p>
     <p class="post-content"><%= post.content %></p>
 
-    <%= render 'posts/counts', post: post %>
+    <div class="post-counts">
+      <p class="post-likes-count" id="post_<%= post.id %>_likes_count">
+          <%= render 'posts/likes_count', post: post %>
+      </p>
+      <p class="post-comments-count" id="post_<%= post.id %>_comments_count">
+        <%= render 'posts/comments_count', post: post %>
+      </p>
+    </div>
+
     <div class="post-links">
-      <%= render 'posts/likes', post: post %>
-      <%= render 'posts/comment_form', post: post %>
+      <p id="post_<%= post.id %>_likes" class="post-like-link">
+        <%= render 'posts/likes', post: post %>
+      </p>
+      <div id="post_<%= post.id %>_comment_form" class="post-write-comment">
+        <%= render 'posts/comment_form', post: post %>
+      </div>
     </div>
 
     <div class="post-comments">

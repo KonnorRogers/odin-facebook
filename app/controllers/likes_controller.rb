@@ -6,7 +6,7 @@ class LikesController < ApplicationController
 
     respond_to do |fmt|
       fmt.html { redirect_to root_url }
-      fmt.json
+      fmt.js
     end
   end
 
@@ -15,7 +15,7 @@ class LikesController < ApplicationController
 
     respond_to do |fmt|
       fmt.html { redirect_to root_url }
-      fmt.json { render status: :created }
+      fmt.js
     end
   end
 

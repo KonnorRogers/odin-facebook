@@ -1,5 +1,11 @@
+<%= render "posts/form", post: @post %>
+
+<%= will_paginate @feed %>
 <div class="feed">
-  <% feed.each do |f| %>
+  <% @feed.each do |f| %>
       <%= render 'posts/post', post: f %>
   <% end %>
 </div>
+<%= will_paginate @feed %>
+
+

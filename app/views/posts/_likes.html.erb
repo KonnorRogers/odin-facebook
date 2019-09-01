@@ -1,14 +1,12 @@
-<p class="post-like-link">
-  <% if user_signed_in? && current_user.likes?(post) %>
-    <%= link_to post_like_path(post_id: post, id: post.id),
-      method: :delete, remote: true do %>
-      <%= fa_icon "thumbs-up" %>
-      Unlike
-    <% end %>
-  <% else %>
-    <%= link_to post_likes_path(post), method: :post, remote: true do %>
-      <%= fa_icon "thumbs-up" %>
-      Like
-    <% end %>
+<% if user_signed_in? && current_user.likes?(post) %>
+  <%= link_to post_like_path(post_id: post, id: post.id),
+    method: :delete, remote: true do %>
+    <%= fa_icon "thumbs-up" %>
+    Unlike
   <% end %>
-</p>
+<% else %>
+  <%= link_to post_likes_path(post), method: :post, remote: true do %>
+    <%= fa_icon "thumbs-up" %>
+    Like
+  <% end %>
+<% end %>
