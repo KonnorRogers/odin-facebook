@@ -49,7 +49,7 @@ class Notifications {
   }
 
   getNewNotifications() {
-    const url = `${this.url()}.json`
+    const url = `/${this.url()}.json`
     Rails.ajax({
       url: url,
       type: "GET",
@@ -62,7 +62,7 @@ class Notifications {
   // populates the dropdown menu
   handleSuccess(data) {
     const items = data.map(n =>
-      `<a class='dropdown-item' href='/${this.url()}'> ${n.sender.first_name} ${n.sender.last_name} ${n.action} ${n.notifiable.type} </a>`
+      `<a class='dropdown-item' href='${n.url}'> ${n.sender.first_name} ${n.sender.last_name} ${n.action} ${n.notifiable.type} </a>`
     );
 
     items.push(`<a class='dropdown-item count' href='/${this.url()}'> View all ${this.behavior.split("-").join(" ")} </a>`);
