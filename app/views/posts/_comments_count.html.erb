@@ -1,4 +1,8 @@
-<%# <% if post.comments.count > 0 %1> %>
-  <a><%= post.comments.count %></a><span> Comments </span>
-
-<%# <% end %1> %>
+<%= link_to post_path(post) do %>
+  <%= post.comments.count %>
+  <% if post.comments.count != 1 %>
+    <span> Comments </span>
+  <% else %>
+    <span> Comment </span>
+  <% end %>
+<% end %>
