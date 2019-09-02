@@ -24,8 +24,11 @@
       </div>
     </div>
 
-    <div class="post-comments">
-    </div>
+    <ul class="post-comments" id="post_<%= post.id %>_comments">
+      <% unless post.comments.empty? %>
+        <%= render 'posts/comment', collection: post.comments %>
+      <% end %>
+    </ul>
   </div>
 
 </div>

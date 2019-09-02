@@ -1,0 +1,10 @@
+<li class="post-comment"><%= comment.content %>
+  <%= form_with model: [ :comment, comment ] do |f| %>
+    <%= f.text_area :content, placeholder: "Add a reply..." %>
+    <%= f.submit "Reply" %>
+  <% end %>
+
+  <ul>
+    <%= render partial: 'posts/comment', collection: comment.comments %>
+  </ul>
+</li>

@@ -9,4 +9,8 @@ class Comment < ApplicationRecord
                       length: { maximum: 140 }
 
   default_scope -> { order(created_at: :desc) }
+
+  def destroy
+    update(user: nil, content: nil)
+  end
 end

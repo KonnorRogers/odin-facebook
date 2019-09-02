@@ -3,18 +3,21 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.create(user: current_user)
+
+    respond_to do |fmt|
+      fmt.html { redirect_to @comment }
+      fmt.js
+    end
   end
 
   def destroy
-  end
+    @comment = Comment.where(user_id: current_user.id).find(params[:id])
+    @comment.destroy
 
-  def edit
-  end
-
-  def update
-  end
-
-  def show
+    respond_to do |fmt|
+      fmt.html { redirect_to @commentable }
+      fmt.js
+    end
   end
 
   private
@@ -23,11 +26,11 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content, :user_id, :commentable_id)
   end
 
-  def set_post
-    if params[:post_id]
-      @commentable = Post.find(params[:post_id])
-    elsif params[:comment_id]
-      @commentable = Comment.find(params[:comment_id]
-    end
+  def set_commentable
+    @commentable = if params[:comment_id]
+                     Comment.find(params[:comment_id])
+                   elsif params[:post_id]
+                     Post.find(params[:post_id])
+                   end
   end
 end
