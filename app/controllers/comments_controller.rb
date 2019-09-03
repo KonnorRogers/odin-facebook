@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   before_action :set_commentable
 
   def create
-    @comment = @commentable.comments.create(user: current_user)
+    byebug
+    @comment = @commentable.comments.create(comment_params)
 
     respond_to do |fmt|
       fmt.html { redirect_to @comment }
@@ -28,9 +29,9 @@ class CommentsController < ApplicationController
 
   def set_commentable
     @commentable = if params[:comment_id]
-                     Comment.find(params[:comment_id])
-                   elsif params[:post_id]
-                     Post.find(params[:post_id])
+                     Comment.find_by(id: params[:comment_id])
+                   elsif params[:id]
+                     Post.find_by(id: params[:post_id])
                    end
   end
 end
