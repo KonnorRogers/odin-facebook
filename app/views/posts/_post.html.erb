@@ -8,27 +8,20 @@
 
     <div class="post-counts">
       <p class="post-likes-count" id="post_<%= post.id %>_likes_count">
-          <%= render 'posts/likes_count', post: post %>
+          <%= render 'likes/count', post: post %>
       </p>
       <p class="post-comments-count" id="post_<%= post.id %>_comments_count">
-        <%= render 'posts/comments_count', post: post %>
+        <%= render 'comments/count', post: post %>
       </p>
     </div>
 
     <div class="post-links">
       <p id="post_<%= post.id %>_likes" class="post-like-link">
-        <%= render 'posts/likes', post: post %>
+        <%= render 'likes/like', post: post %>
       </p>
       <div id="post_<%= post.id %>_comment_form" class="post-write-comment">
-        <%= render 'posts/comment_form', post: post %>
+        <%= render 'comments/form', post: post %>
       </div>
     </div>
-
-    <ul class="post-comments" id="post_<%= post.id %>_comments">
-      <% unless post.comments.empty? %>
-        <%= render 'posts/comment', collection: post.comments, post: post %>
-      <% end %>
-    </ul>
   </div>
-
 </div>

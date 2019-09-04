@@ -1,1 +1,7 @@
 <%= render 'post', post: @post %>
+
+<ul class="post-comments" id="post_<%= @post.id %>_comments">
+  <% unless @post.comments.empty? %>
+    <%= render partial: 'comments/comment', collection: @post.comments, post: @post %>
+  <% end %>
+</ul>

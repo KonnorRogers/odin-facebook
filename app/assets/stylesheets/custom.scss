@@ -12,6 +12,10 @@ body {
   text-align: center;
 }
 
+ul {
+  list-style: none;
+}
+
 .btn {
   box-shadow: none;
   padding: 0.4rem;
@@ -447,6 +451,22 @@ div.birthday.field {
   &:hover {
     background-color: rgba($dark-purple, 0.8);
     color: white;
+  }
+}
+
+.post-comments {
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+
+  .post-comment {
+    width: 400px;
+    text-align: left;
   }
 }
 

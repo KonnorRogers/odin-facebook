@@ -1,0 +1,5 @@
+<%= form_with(model: Comment.new, local: true) do |f| %>
+  <%= hidden_field_tag(:post_id, post.id) %>
+  <%= f.text_field :content, placeholder: "Write a comment..." %>
+  <%= f.submit "Post" %>
+<% end %>

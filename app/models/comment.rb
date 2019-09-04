@@ -13,4 +13,24 @@ class Comment < ApplicationRecord
   def destroy
     update(user: nil, content: nil)
   end
+
+  # Count is accesssed via comments_count which is a colum in Post
+  after_create :increment_count
+  after_destroy :decrement_count
+
+  def increment_count
+    parent = commentable
+
+    # Keep looping until we get to the parent which isn't a Comment model
+    parent = parent.commentable while parent.is_a? Comment
+    parent.increment! :comments_count
+  end
+
+  def decrement_count
+    parent = commentable
+
+    # Keep looping until we get to the parent which isn't a Comment model
+    parent = parent.commentable while parent.is_a? Comment
+    parent.decrement! :comments_count
+  end
 end

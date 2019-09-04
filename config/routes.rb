@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   # GET /comments/:comment_id/comments(:format)
   # GET /comments/:like_id/likes(:format)
   resources :comments, only: %i[create destroy edit show] do
-    resources :comments, only: %i[show]
+    resources :comments, only: %i[create destroy]
     resources :likes, only: %i[create destroy]
   end
 end
