@@ -4,9 +4,10 @@
 <%#   <%= render "feed", feed: @feed %1> %>
 <%# <%= will_paginate @feed %1> %>
 
-<%# <%= render "friendships/unadded", users: @users %1> %>
-<%# <%= render "friendships/friends", friends: @friends %1> %>
-<%# <%= render "friend_requests/pending", pending_requests: @received_requests %1> %>
-<%# <%= render "friend_requests/sent", sent_requests: @sent_requests %1> %>
 
 <%= render 'users/feed' %>
+
+<%= render "friendships/unadded", users: @users %>
+<%= render "friendships/friends", friends: @friends %>
+<%= render "friend_requests/pending", pending_requests: @received_requests %>
+<%= render "friend_requests/sent", sent_requests: @sent_requests %>

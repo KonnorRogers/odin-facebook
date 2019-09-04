@@ -8,4 +8,9 @@ module ApplicationHelper
 
     "#{page_title} | #{base_title}"
   end
+
+  def created_time(commentable)
+    string = time_ago_in_words(commentable.created_at)
+    string.gsub('about ', "") + ' ago'
+  end
 end

@@ -3,7 +3,7 @@
   <div class="post-item">
     <p class="post-author-picture"></p>
     <p class="post-name"><%= post.author.full_name %></p>
-    <p class="post-time"><%= time_ago_in_words(post.created_at).gsub("about ", "") + " ago" %></p>
+    <p class="post-time"><%= created_time(post) %></p>
     <p class="post-content"><%= post.content %></p>
 
     <div class="post-counts">

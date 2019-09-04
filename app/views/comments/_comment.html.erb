@@ -1,4 +1,8 @@
-<li class="post-comment"><p class="comment-content"><%= comment.content %></p>
+<li class="post-comment">
+  <p class="comment-content">
+    <p class="commenter"><%= comment.user.full_name %></p>
+    <%= comment.content %>
+  </p>
   <%= form_with(model: [comment, Comment.new], local: true) do |f| %>
     <%= f.text_field :content, placeholder: "Add a reply..." %>
     <%= f.submit "Reply" %>
