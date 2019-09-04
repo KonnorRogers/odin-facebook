@@ -25,7 +25,8 @@ For most recent changes please refer to the [staging branch](https://github.com/
 - [x] Users can create Posts (text only to start).
 - [x] Users can Like Posts.
   * Liking posts handled via AJAX
-- [ ] Users can Comment on Posts.
+- [x] Users can Comment on Posts.
+  * I also added the ability to comment on comments. using AJAX with this caused significant complexity.
 - [x] Posts should always display with the post content, author, comments and likes.
 - [x]  Treat the Posts Index page like the real Facebook’s “Timeline” feature – show all the recent posts from the current user and users she is friends with.
 - [ ]  Users can create a Profile with a Photo (just start by using the Gravatar image like you did in the Rails Tutorial).
