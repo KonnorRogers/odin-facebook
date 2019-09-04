@@ -98,8 +98,10 @@ a {
   padding-right: 15vw;
 }
 
-.home {
+
+li.profile {
   margin-left: auto;
+  margin-right: 1rem;
 }
 
 /* login header */
@@ -506,4 +508,15 @@ div.pagination > .current {
   }
 }
 
+// Gravatar
 
+.gravatar {
+  float: left;
+  margin-left: 3rem;
+  border-radius: 50%;
+}
+
+.gravatar-edit > .gravatar {
+  float: none;
+  margin-right: 1rem;
+}
