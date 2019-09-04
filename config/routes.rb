@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'posts#index'
 
   devise_for :users
   devise_scope :user do
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   # Allows comments to be referrable from posts
   # GET /posts/:post_id/comments/:comment_id
   # GET /posts/:post_id/likes/:like_id
-  resources :posts, only: %i[create destroy update edit show] do
+  resources :posts, only: %i[index create destroy update edit show] do
     resources :comments, only: %i[show]
     resources :likes, only: %i[create destroy]
   end

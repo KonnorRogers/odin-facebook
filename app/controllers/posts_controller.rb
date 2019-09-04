@@ -1,6 +1,16 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  def index
+    if user_signed_in?
+      @post = current_user.posts.build
+      @feed = current_user.feed.paginate(page: params[:page], per_page: 2)
+    else
+      redirect_to signup_path
+    end
+  end
+
   def create
     @post = current_user.posts.build(post_params)
 
