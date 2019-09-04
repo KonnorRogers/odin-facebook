@@ -1,5 +1,10 @@
 <ul class="navbar">
-  <li class="profile"><%= link_to current_user.full_name.titleize %></li>
+  <li class="profile">
+    <%= link_to user_path(current_user) do %>
+      <%= gravatar_for(current_user, size: 30) %>
+      <span><%= current_user.full_name.titleize %></span>
+    <% end %>
+  </li>
   <li class="home"><%= link_to "Home", root_url %></li>
   <div class="dropdown" data-behavior="friend-requests">
     <button class="dropbtn friend-requests-btn" id="drop-btn" data-behavior="friend-requests-link">
