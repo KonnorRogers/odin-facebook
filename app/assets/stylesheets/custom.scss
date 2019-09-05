@@ -41,7 +41,6 @@ ul {
   padding: 1rem;
 }
 
-
 .btn-green {
   color: white;
   background-color: $dark-green;
@@ -122,7 +121,7 @@ li.profile {
   span {
     margin-left: 0;
     display: table-cell;
-    padding: 0;
+    padding: 0 0.4rem;
     vertical-align: middle;
   }
 }
@@ -183,6 +182,21 @@ input.login-field {
   border: none;
 }
 
+.forgot-password-link {
+  position: absolute;
+  top: 8vh;
+  left: 65%;
+  a {
+    font-size: small;
+    color: white;
+    text-decoration: none;
+    padding: 0.1rem 0.5rem;
+    &:hover {
+      background: $light-purple;
+    }
+  }
+}
+
 // login page
 
 div.login-box-container {
@@ -229,12 +243,20 @@ div.login-box {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
+
 }
 
 .signup-info.field {
   margin: 0;
   padding: 0;
   text-align: left;
+}
+
+div.signup-btn {
+  // justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+  margin-left: 2rem;
 }
 
 .signup-field {
@@ -245,12 +267,6 @@ div.login-box {
   box-shadow: none;
 }
 
-div.signup-btn {
-  // justify-content: center;
-  margin-top: 2rem;
-  width: 100%;
-  margin-left: 2rem;
-}
 
 div.gender.field {
   margin-bottom: 0.5rem;
@@ -319,34 +335,6 @@ div.birthday.field {
 
 // password reset
 
-.actions {
-}
-
-.links {
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-
-  a {
-    padding: 0.25rem 0.5rem;
-    margin: 0.3rem auto;
-    color: white;
-    width: 50%;
-    display: block;
-    text-decoration: none;
-    width: 7rem;
-    background: $light-purple;
-
-    &:hover {
-      pointer-events: pointer;
-      background: blueviolet;
-    }
-  }
-}
 
 // dropdown
 
@@ -564,7 +552,7 @@ div.pagination > .current {
 
 // Forgot password
 
-.new-password-container {
+.new-password-container, .login-box {
   margin: auto;
   margin-top: 5rem;
   padding: 3rem;
@@ -574,12 +562,39 @@ div.pagination > .current {
   flex-direction: column;
   background: white;
 
+  .field {
+    padding: 0.2rem;
+  }
+
   * {
     margin: 0.5rem;
     padding: 0.2rem 0.5rem;
   }
 
-  .actions > input {
+  .links, .actions {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: 0 auto;
 
+    a, input {
+      padding: 0.5rem 1rem;
+      margin: 0.2rem auto;
+      color: white;
+      display: block;
+      text-decoration: none;
+      background: $light-purple;
+      border-radius: 9999px;
+
+      &:hover {
+        pointer-events: pointer;
+        background: blueviolet;
+      }
+    }
   }
 }
+
