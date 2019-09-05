@@ -24,7 +24,7 @@ class FriendRequestsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to root_url }
+      format.html { redirect_back(fallback_location: root_url) }
       format.js
     end
   end

@@ -18,6 +18,13 @@ ul {
 
 a {
   text-decoration: none;
+  color: $dark-purple;
+  padding: 0.2rem 0.5rem;
+
+  &:hover, &:focus {
+    color: white;
+    background-color: $light-purple;
+  }
 }
 
 .btn {
@@ -462,10 +469,25 @@ div.birthday.field {
 
 .post-comments-count {
   text-align: right;
+  a {
+    padding: 0.2rem 0.5rem;
+  }
 }
 
 .post-likes-count {
   text-align: left;
+
+  * {
+    &:hover, &:focus {
+      background-color: unset;
+      color: $dark-purple;
+    }
+  }
+
+  a {
+    padding: 0;
+    padding-left: 0.2rem;
+  }
 }
 
 .post-counts > * {
@@ -473,7 +495,7 @@ div.birthday.field {
 }
 
 .post-links, .post-links > * > a {
-  color: $dark-purple;
+  // color: $dark-purple;
 }
 
 .post-like-link {
@@ -487,10 +509,6 @@ div.birthday.field {
 
 .post-links > * > a {
   padding: 0.2rem 1rem;
-  &:hover {
-    background-color: rgba($dark-purple, 0.8);
-    color: white;
-  }
 }
 
 .post-links {
@@ -517,6 +535,9 @@ div.birthday.field {
 
 .commenter {
   font-size: x-small;
+  a {
+    padding: 0;
+  }
 }
 
 .post-content {
@@ -527,6 +548,7 @@ div.birthday.field {
 .profile-link {
   margin: 0 auto;
   text-align: left;
+  padding: 0;
 }
 
 
@@ -542,8 +564,8 @@ div.pagination > * {
   color: blueviolet;
 
   &:hover, &:focus {
-    color: black;
-    border-color: black;
+    color: white;
+    border-color: gray;
   }
 }
 
@@ -570,6 +592,18 @@ div.pagination > .current {
   margin-right: 0.5rem;
 }
 
+.column-1 {
+  .gravatar {
+    flex-grow: 0;
+    width: 70%;
+    margin-left: 1.5rem;
+ }
+
+ .user-name {
+   font-size: xx-large;
+   color: black;
+ }
+}
 .gravatar-edit > .gravatar {
   float: none;
 }
@@ -631,6 +665,16 @@ div.pagination > .current {
 
   .column-1, .column-3 {
     width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    p {
+      width: 80%;
+
+      a {
+      }
+    }
   }
 
   .column-2 {
@@ -645,8 +689,39 @@ div.pagination > .current {
 // friends
 
 .all-friends, .pending-friends, .sent-friends, .possible-friends {
+  a {
+    padding: 0.5rem;
+  }
   margin: 0 auto;
   .gravatar {
     float: none;
+  }
+}
+
+.remove-friend {
+  margin-left: 0.2rem;
+  a {
+    color: black;
+    border: 1px solid gray;
+    background: lightgray;
+
+    &:hover, &:focus {
+      color: white;
+      background: blueviolet;
+    }
+  }
+
+}
+
+.add-friend {
+  margin-left: 0.2rem;
+  a {
+    color: white;
+    border: 1px solid gray;
+    background: $light-purple;
+
+    &:hover, &:focus {
+      background: blueviolet;
+    }
   }
 }

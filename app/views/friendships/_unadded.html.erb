@@ -7,8 +7,11 @@
       <%= gravatar_for(user, size: 20) %>
       <%= user.full_name.titleize %>
     <% end %>
-    <%= link_to "Add", friend_requests_path(friend_id: user.id),
-      method: :post %>
+
+    <span class="add-friend">
+      <%= link_to "Add", friend_requests_path(friend_id: user.id),
+        method: :post %>
+    </span>
   </p>
 <% end %>
 </div>

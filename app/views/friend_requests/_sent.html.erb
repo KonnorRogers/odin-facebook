@@ -6,7 +6,10 @@
         <%= gravatar_for(friend, size: 20) %>
         <%= friend.full_name.titleize %>
       <% end %>
-      <%= link_to "Cancel request", friend_request_path(friend), method: :delete %>
+
+      <span class="remove-friend">
+        <%= link_to "Cancel request", friend_request_path(friend), method: :delete %>
+      </span>
     </p>
   <% end %>
 </div>
