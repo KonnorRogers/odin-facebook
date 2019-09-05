@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :users, only: %i[show index update edit]
+  resources :users, only: %i[show index]
   resources :friendships, only: %i[create destroy index]
 
   # allows for marking a notifications as read
