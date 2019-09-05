@@ -1,9 +1,14 @@
 <h2> Possible Friends </h2>
 
+<div class="possible-friends">
 <% users.each do |user| %>
-  <p class="possible-friends">
-  <%= user.full_name %>
-  <%= link_to "Add", friend_requests_path(friend_id: user.id),
-                            method: :post %>
+  <p class="possible-friend">
+    <%= link_to user_path(user) do %>
+      <%= gravatar_for(user, size: 20) %>
+      <%= user.full_name.titleize %>
+    <% end %>
+    <%= link_to "Add", friend_requests_path(friend_id: user.id),
+      method: :post %>
   </p>
 <% end %>
+</div>

@@ -2,7 +2,10 @@
 <div class="pending-friends">
   <% pending_requests.each do |friend| %>
     <p class="friend">
-      <%= friend.full_name %>
+      <%= link_to user_path(friend) do %>
+        <%= gravatar_for(friend, size: 20) %>
+        <%= friend.full_name.titleize %>
+      <% end %>
       <%= link_to "Confirm", friendships_path(friend_id: friend), method: :post %>
       <%= link_to "Delete", friend_request_path(friend), method: :delete %>
     </p>

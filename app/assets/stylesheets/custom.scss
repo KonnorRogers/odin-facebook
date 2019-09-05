@@ -645,6 +645,8 @@ div.pagination > .current {
 // friends
 
 .all-friends, .pending-friends, .sent-friends, .possible-friends {
-  width: 170px;
   margin: 0 auto;
+  .gravatar {
+    float: none;
+  }
 }
