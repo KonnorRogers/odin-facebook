@@ -1,8 +1,10 @@
 
 <div class="post-container">
   <div class="post-item">
-    <p class="post-author-picture"></p>
-    <p class="post-name"><%= post.author.full_name %></p>
+    <p class="profile-name"><%= link_to user_path(post.author), class: "profile-link" do  %>
+      <span class="post-author-picture"><%= gravatar_for(post.author, size: 30) %></span>
+      <span class="post-name"><%= post.author.full_name %></span>
+    <% end %></p>
     <p class="post-time"><%= created_time(post) %></p>
     <p class="post-content"><%= post.content %></p>
 

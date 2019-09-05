@@ -16,11 +16,11 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:success] = 'Post successfully created'
-      redirect_to root_url
     else
       flash[:error] = 'Post did not submit'
-      render 'new'
     end
+
+    redirect_back(fallback_location: root_url)
   end
 
   def new
@@ -35,16 +35,17 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update_attributes(post_params)
       flash[:success] = 'Post updated'
-      redirect_to @post
     else
-      render 'edit'
+      flash[:error] = 'Unable to update post'
     end
+
+    redirect_back(fallback_location: root_url)
   end
 
   def destroy
     Post.find(params[:id]).destroy
     flash[:success] = 'Post deleted'
-    redirect_to root_url
+    redirect_back(fallback_location: root_url)
   end
 
   def show

@@ -1,9 +1,14 @@
 <h2> Friends </h2>
 
-<% friends.each do |friend| %>
-  <p class="friend">
-    <%= friend.full_name %>
-    <%= link_to "Remove friend", friendship_path(friend, friend_id: friend.id), 
-                                 method: :delete %>
-  </p>
-<% end %>
+<div class="all-friends">
+  <% friends.each do |friend| %>
+    <p class="friends">
+      <%= link_to user_path(friend) do %>
+        <%= gravatar_for(friend, size: 20) %>
+        <%= friend.full_name.titleize %>
+      <% end %>
+      <%= link_to "Remove", friendship_path(friend, friend_id: friend.id),
+        method: :delete %>
+    </p>
+  <% end %>
+</div>

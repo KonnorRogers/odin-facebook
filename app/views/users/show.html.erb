@@ -1,9 +1,22 @@
-<%= gravatar_for current_user, size: 150 %>
-<%= @user.full_name %>
+<div class="user-show">
+  <div class="column-1">
+    <%= gravatar_for current_user, size: 150 %>
+    <%= @user.full_name %>
+  </div>
+  <div class="column-2">
+  <% if @post %>
+    <%= render 'posts/form', post: @post %>
+  <% end %>
 
-<%= link_to "Change information", edit_user_registration_path %>
+  <%= render 'posts/feed', feed: @feed %>
+  </div>
 
-<p class="gravatar-edit">
-  <%= gravatar_for @user %>
-  <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
-</p>
+  <div class="column-3">
+    <%= link_to "Change information", edit_user_registration_path %>
+
+    <p class="gravatar-edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
+    </p>
+  </div>
+</div>

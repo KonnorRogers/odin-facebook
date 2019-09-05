@@ -1,4 +1,5 @@
 <ul class="navbar">
+  <li class="explore"><%= link_to "Explore", users_path %></li>
   <li class="profile">
     <%= link_to user_path(current_user) do %>
       <%= gravatar_for(current_user, size: 30) %>

@@ -1,6 +1,11 @@
 <li class="post-comment">
+    <p class="commenter">
+      <%= link_to comment.user do %>
+        <%= gravatar_for(comment.user, size: 20) %>
+        <%= comment.user.full_name %>
+      <% end %>
+    </p>
   <p class="comment-content">
-    <p class="commenter"><%= comment.user.full_name %></p>
     <%= comment.content %>
   </p>
   <%= form_with(model: [comment, Comment.new], local: true) do |f| %>

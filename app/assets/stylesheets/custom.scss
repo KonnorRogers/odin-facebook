@@ -16,6 +16,10 @@ ul {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .btn {
   box-shadow: none;
   padding: 0.4rem;
@@ -124,6 +128,10 @@ li.profile {
     padding: 0 0.4rem;
     vertical-align: middle;
   }
+}
+
+li.explore {
+  margin-left: auto;
 }
 
 /* login header */
@@ -485,6 +493,12 @@ div.birthday.field {
   }
 }
 
+.post-links {
+  input {
+    padding-left: 0.5rem;
+  }
+}
+
 .post-comments {
   display: flex;
   flex: auto;
@@ -504,6 +518,17 @@ div.birthday.field {
 .commenter {
   font-size: x-small;
 }
+
+.post-content {
+  padding-top: 1rem;
+  font-size: large;
+}
+
+.profile-link {
+  margin: 0 auto;
+  text-align: left;
+}
+
 
 // Pagination
 
@@ -541,13 +566,12 @@ div.pagination > .current {
 
 .gravatar {
   float: left;
-  margin-left: 3rem;
   border-radius: 50%;
+  margin-right: 0.5rem;
 }
 
 .gravatar-edit > .gravatar {
   float: none;
-  margin-right: 1rem;
 }
 
 // Forgot password
@@ -598,3 +622,29 @@ div.pagination > .current {
   }
 }
 
+// Show user page
+
+.user-show {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+
+  .column-1, .column-3 {
+    width: 20%;
+  }
+
+  .column-2 {
+    width: 60%;
+  }
+
+  .post-item {
+    width: 60%;
+  }
+}
+
+// friends
+
+.all-friends, .pending-friends, .sent-friends, .possible-friends {
+  width: 170px;
+  margin: 0 auto;
+}

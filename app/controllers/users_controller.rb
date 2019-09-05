@@ -12,6 +12,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+
+    @post = current_user.posts.build if @user == current_user
+    @feed = Post.where(author_id: @user.id).paginate(page: params[:page],
+                                                     per_page: 2)
   end
 end

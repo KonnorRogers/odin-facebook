@@ -1,9 +1,9 @@
-<h2> Other users </h2>
+<h2> Possible Friends </h2>
 
 <% users.each do |user| %>
-  <p>
+  <p class="possible-friends">
   <%= user.full_name %>
-  <%= link_to "Add friend", friend_requests_path(friend_id: user.id), 
+  <%= link_to "Add", friend_requests_path(friend_id: user.id),
                             method: :post %>
   </p>
 <% end %>

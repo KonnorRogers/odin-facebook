@@ -2,13 +2,15 @@
 
 class FriendRequestsController < ApplicationController
   def index
+    @received_requests = current_user.received_requests
+    @sent_requests = current_user.sent_requests
+    @unread_requests = Notification.where(
+      recipient_id: current_user.id
+    ).friend_requests.unread
+
     respond_to do |format|
-      format.html { @received_requests = current_user.received_requests }
-      format.json do
-        @unread_requests = Notification.where(
-          recipient_id: current_user.id
-        ).friend_requests.unread
-      end
+      format.html { @received_requests }
+      format.json { @unread_requests }
     end
   end
 

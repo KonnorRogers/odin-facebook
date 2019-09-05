@@ -5,7 +5,7 @@ class LikesController < ApplicationController
     @post.likes.find_or_create_by(user_id: current_user.id)
 
     respond_to do |fmt|
-      fmt.html { redirect_to root_url }
+      fmt.html { redirect_back(fallback_location: root_url) }
       fmt.js
     end
   end
@@ -14,7 +14,7 @@ class LikesController < ApplicationController
     @post.likes.where(user_id: current_user.id).destroy_all
 
     respond_to do |fmt|
-      fmt.html { redirect_to root_url }
+      fmt.html { redirect_back(fallback_location: root_url) }
       fmt.js
     end
   end
@@ -22,6 +22,6 @@ class LikesController < ApplicationController
   private
 
   def set_post
-    @post ||= Post.find(params[:post_id])
+    @post = Post.find(params[:post_id])
   end
 end
