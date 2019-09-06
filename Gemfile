@@ -14,6 +14,7 @@ gem 'dotenv-rails', '~> 2.7',
 gem 'font-awesome-rails', '~> 4.5'
 gem 'jbuilder', '~> 2.5'
 gem 'normalize-rails', '~> 4.0'
+gem 'omniauth-facebook', '~> 5.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
