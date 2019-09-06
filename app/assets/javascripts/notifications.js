@@ -65,14 +65,22 @@ class Notifications {
       `<a class='dropdown-item' href='${n.url}'> ${n.sender.first_name} ${n.sender.last_name} ${n.action} ${n.notifiable.type} </a>`
     );
 
-    items.push(`<a class='dropdown-item count' href='/${this.url()}'> View all ${this.behavior.split("-").join(" ")} </a>`);
-    if (items.length - 1 > 5) {
-      this.setCount("!")
-    } else if (items.length - 1 > 0) {
-      this.setCount(items.length - 1)
-    };
+    this.pushStaticLinks(items);
+
+    this.setCount(items);
+
     this.items.innerHTML = items.join("");
   };
+
+  pushStaticLinks(items){
+    items.push(`<a class='dropdown-item count' href='/${this.url()}'> View all ${this.behavior.split("-").join(" ")} </a>`);
+  };
+
+  setCount(items) {
+    if (items.length - 1 > 5) { this.setCountInnerText("!") };
+    if (items.length - 1 > 0) { this.setCountInnerText(items.length - 1) };
+  }
+
 
   handleClick(e) {
     Rails.ajax({
@@ -82,7 +90,7 @@ class Notifications {
     });
   };
 
-  setCount(text) {
+  setCountInnerText(text) {
     this.count.innerText = text;
   };
 
@@ -94,8 +102,26 @@ class Notifications {
   };
 };
 
+class FriendRequests extends Notifications {
+  constructor(behavior) {
+    super(behavior);
+  };
+
+  pushStaticLinks(items) {
+    super.pushStaticLinks(items);
+    items.push(`<a class="dropdown-item" href="/friendships">
+                   View all friends
+                </a>`);
+  };
+
+  setCount(items) {
+    if (items.length - 2 > 5) { this.setCountInnerText("!") };
+    if (items.length - 2 > 0) { this.setCountInnerText(items.length - 2) };
+  };
+}
+
 document.addEventListener("turbolinks:load", () => {
   new Notifications("notifications")
-  new Notifications("friend-requests")
+  new FriendRequests("friend-requests")
 });
 

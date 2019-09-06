@@ -5,6 +5,9 @@
         <%= comment.user.full_name %>
       <% end %>
     </p>
+    <p class="comment-time">
+      <%= created_time(comment) %>
+    </p>
   <p class="comment-content">
     <%= comment.content %>
   </p>

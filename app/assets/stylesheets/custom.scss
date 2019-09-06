@@ -442,13 +442,19 @@ div.birthday.field {
   text-align: left;
 }
 
+
 .post-item > * {
   padding-left: 1rem;
 }
 
-.post-time {
+.post-time, {
   font-size: x-small;
-  margin-top: -1rem;
+  margin: -1rem;
+}
+
+.comment-time {
+  font-size: x-small;
+  margin-top: -0.5rem;
 }
 
 .post-links, .post-counts {
@@ -546,9 +552,12 @@ div.birthday.field {
 }
 
 .profile-link {
-  margin: 0 auto;
+  margin: 0;
   text-align: left;
   padding: 0;
+  &:hover {
+    padding: 0.1rem 0.25rem;
+  }
 }
 
 
@@ -713,11 +722,10 @@ div.pagination > .current {
   a {
     color: black;
     border: 1px solid gray;
-    background: lightgray;
+    background: $gray;
 
     &:hover, &:focus {
-      color: white;
-      background: blueviolet;
+      background: lightgray;
     }
   }
 
@@ -735,3 +743,34 @@ div.pagination > .current {
     }
   }
 }
+
+
+// Editing a user
+
+.user-edit {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  * {
+    margin: 0.5rem auto;
+  }
+}
+
+.user-edit-field > label {
+  font-weight: bold;
+}
+
+.user-edit-update, .user-edit-cancel {
+  color: white;
+  border: none;
+  background: $light-purple;
+  width: 12rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+
+  &:hover, &:focus {
+    background: blueviolet;
+  }
+}
+
