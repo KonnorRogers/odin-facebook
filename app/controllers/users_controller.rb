@@ -6,9 +6,6 @@ class UsersController < ApplicationController
     @users = User.where.not(id: current_user.id).reject do |user|
       user.friend?(current_user) || user.pending_request?(current_user)
     end
-    @received_requests = current_user.received_requests
-    @sent_requests = current_user.sent_requests
-    @friends = current_user.all_friends
   end
 
   def show
