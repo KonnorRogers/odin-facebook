@@ -602,6 +602,16 @@ div.pagination > .current {
  .user-name {
    font-size: xx-large;
    color: black;
+   padding: 0;
+   margin: 0;
+   margin-top: 0.5rem;
+ }
+
+ p {
+   padding: 0;
+   padding-top: 0.5rem;
+   margin: 0;
+   margin-top: 1rem;
  }
 }
 .gravatar-edit > .gravatar {
