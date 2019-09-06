@@ -8,7 +8,7 @@ class LikesController < ApplicationController
 
     # Send notification
     Notification.create(recipient: @post.author, sender: current_user,
-                        action: 'liked', notifiable: 'Post')
+                        action: 'liked', notifiable: @post)
 
     respond_to do |fmt|
       fmt.html { redirect_back(fallback_location: root_url) }
