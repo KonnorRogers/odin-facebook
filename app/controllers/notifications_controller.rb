@@ -3,9 +3,12 @@
 class NotificationsController < ApplicationController
   def index
     @notifications = Notification.where(recipient_id: current_user.id).non_friend_requests
+    @unread_notifications = Notification.where(recipient_id: current_user.id).non_friend_requests.unread
+
+    byebug
     respond_to do |format|
       format.html { @notifications }
-      format.json { @notifications.unread }
+      format.json { @unread_notifications }
     end
   end
 

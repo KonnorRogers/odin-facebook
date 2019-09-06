@@ -402,6 +402,8 @@ div.birthday.field {
 }
 
 .dropbtn > .count {
+  font-size: small;
+  color: white;
   position: absolute;
 }
 
@@ -410,11 +412,7 @@ div.birthday.field {
 }
 
 .fa-caret-down {
-  padding-left: 0.5rem;
-}
-
-.notifications-btn > .fa-caret-down {
-  padding-left: 0.8rem;
+  padding-left: 1.1rem;
 }
 
 // Feed items
