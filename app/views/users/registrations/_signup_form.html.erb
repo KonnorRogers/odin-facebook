@@ -2,16 +2,16 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field signup-name">
-    <%= f.text_field :first_name, 
-      class: 'signup-field first-name', 
+    <%= f.text_field :first_name,
+      class: 'signup-field first-name',
       placeholder: "First name", size: 14 %>
-    <%= f.text_field :last_name, 
-      class: 'signup-field last-name', 
+    <%= f.text_field :last_name,
+      class: 'signup-field last-name',
       placeholder: "Last name", size: 14 %>
   </div>
 
   <div class="field">
-    <%= f.email_field :email, 
+    <%= f.email_field :email,
       class: 'signup-field', placeholder: "Email", size: 36 %>
   </div>
 
@@ -19,18 +19,18 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, 
+    <%= f.password_field :password,
       class: 'signup-field', placeholder: "Password", size: 36 %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password_confirmation, 
-      class: 'signup-field', 
+    <%= f.password_field :password_confirmation,
+      class: 'signup-field',
       placeholder: "Password Confirmation", size: 36 %>
   </div>
 
   <div class="gender field">
-    <p class="gender-label">Gender</p> 
+    <p class="gender-label">Gender</p>
     <% User::GENDERS.each do |gender| %>
       <%= f.radio_button :gender, gender %>
       <%= f.label :gender, gender.capitalize %>
@@ -39,7 +39,7 @@
 
   <div class="birthday field">
     <p class="birthday-label"> Birthday </p>
-    <%= f.date_select(:birthday, 
+    <%= f.date_select(:birthday,
                     order: [:month, :day, :year],
                     default: Date.today,
                     use_short_month: true,
@@ -50,3 +50,4 @@
     <%= f.submit "Signup", class: "btn btn-green" %>
   </div>
 <% end %>
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
