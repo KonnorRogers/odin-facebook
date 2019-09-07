@@ -12,6 +12,10 @@ body {
   text-align: center;
 }
 
+input[type="submit"] {
+  cursor: pointer;
+}
+
 ul {
   list-style: none;
 }
@@ -772,3 +776,43 @@ div.pagination > .current {
   }
 }
 
+// Facebook signin
+
+.signin-facebook-link, .login-facebook-link {
+  background: #4267b2;
+  color: white;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  margin-left: 7rem;
+
+  &:hover, &:focus {
+    color: white;
+    background: darken(#4267b2, 5%);
+  }
+}
+
+.login-facebook-link {
+  padding: 0.5rem;
+  width: 50%;
+  margin: auto;
+  text-align: right;
+}
+
+input.btn-green.btn {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.signin-facebook-link {
+  font-size: large;
+}
+
+.facebook-icon {
+  padding-left: 0.5rem;
+  font-size: x-large;
+
+  i {
+    vertical-align: middle;
+  }
+}
