@@ -20,7 +20,7 @@ class Notifications {
 
   addClickListener() {
     this.linkBtn.addEventListener("click", () => this.handleClick(), true);
-    this.linkBtn.addEventListener("click", () => this.setCount(""), false)
+    this.linkBtn.addEventListener("click", () => this.setCountInnerText(""), false);
   }
 
   toggleIntervalListener(interval) {
@@ -78,7 +78,7 @@ class Notifications {
 
   setCount(items) {
     if (items.length > 5) { return this.setCountInnerText("5+") };
-    if (items.length > 0) { this.setCountInnerText(items.length - 1) };
+    if (items.length > 0) { this.setCountInnerText(items.length) };
   }
 
 
