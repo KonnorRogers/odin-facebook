@@ -1,9 +1,25 @@
 # README
 
-## CURRENT DEVELOPMENT
+## What the live app looks like
 
-This repo is currently under development.
-For most recent changes please refer to the [staging branch](https://github.com/ParamagicDev/odin-facebook/tree/staging)
+## Getting starting
+
+```bash
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
+rails server
+```
+
+Navigate to localhost:3000
+
+log in as any user IE:
+
+username: bob@example.com
+password: foobar
+
+These users also exist in the real app to play around with
 
 ## Setting up POSTGRESQL
 
@@ -32,10 +48,10 @@ For most recent changes please refer to the [staging branch](https://github.com/
 - [x]  Users can create a Profile with a Photo (just start by using the Gravatar image like you did in the Rails Tutorial).
 - [x]  The User Show page contains their Profile information, photo, and Posts.
 - [x]  The Users Index page lists all users and buttons for sending Friend Requests to those who are not already friends or who don’t already have a pending request.
-- [ ]  Sign in should use Omniauth to allow a user to sign in with their real Facebook account. See the RailsCast on FB authentication with Devise for a step-by-step look at how it works.
-- [ ]  Set up a mailer to send a welcome email when a new user signs up. Use the letter_opener gem (see docs here) to test it in development mode.
-- [ ]  Deploy your App to Heroku.
-- [ ]  Set up the SendGrid add-on and start sending real emails. It’s free for low usage tiers.
+- [x]  Sign in should use Omniauth to allow a user to sign in with their real Facebook account. See the RailsCast on FB authentication with Devise for a step-by-step look at how it works.
+- [x]  Set up a mailer to send a welcome email when a new user signs up. Use the letter_opener gem (see docs here) to test it in development mode.
+- [x]  Deploy your App to Heroku.
+- [x]  Set up the SendGrid add-on and start sending real emails. It’s free for low usage tiers.
 
 Extra Credit
 
