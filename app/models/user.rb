@@ -102,4 +102,10 @@ class User < ApplicationRecord
   def likes?(post)
     post.likes.where(user_id: id).any?
   end
+
+  protected
+
+  def confirmation_required?
+    false
+  end
 end
