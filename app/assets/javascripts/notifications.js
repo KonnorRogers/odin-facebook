@@ -77,8 +77,8 @@ class Notifications {
   };
 
   setCount(items) {
-    if (items.length - 1 > 5) { return this.setCountInnerText("5+") };
-    if (items.length - 1 > 0) { this.setCountInnerText(items.length - 1) };
+    if (items.length > 5) { return this.setCountInnerText("5+") };
+    if (items.length > 0) { this.setCountInnerText(items.length - 1) };
   }
 
 
@@ -112,11 +112,6 @@ class FriendRequests extends Notifications {
     items.push(`<a class="dropdown-item" href="/friendships">
                    View all friends
                 </a>`);
-  };
-
-  setCount(items) {
-    if (items.length - 2 > 5) { return this.setCountInnerText("5+") };
-    if (items.length - 2 > 0) { this.setCountInnerText(items.length - 2) };
   };
 }
 
