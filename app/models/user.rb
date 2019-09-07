@@ -33,26 +33,26 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          authentication_keys: [:email]
-  devise :omniauthable, omniauth_providers: %i[facebook]
 
-  VALID_NAME_REGEXP = /\A[A-Za-z\ ]+\z/.freeze
+  devise :omniauthable, omniauth_providers: %i[facebook]
 
   %i[first_name last_name].each do |attr|
     validates attr, presence: true,
-                    length: { maximum: 50 },
-                    format: { with: VALID_NAME_REGEXP }
+                    length: { maximum: 50 }
   end
 
-  validates :birthday, presence: true,
-                       age: { too_young: 13, too_old: 120 }
+  ### NO LONGER VALIDATING DUE TO OMNIAUTH ISSUES
+  # validates :birthday, presence: true,
+  #                      age: { too_young: 13, too_old: 120 }
 
-  validates :gender, presence: true,
-                     inclusion: {
-                       in: GENDERS.map(&:to_s),
-                       message: '%{value} is not a valid gender'
-                     }
+  # validates :gender, presence: true,
+  #                    inclusion: {
+  #                      in: GENDERS.map(&:to_s),
+  #                      message: '%{value} is not a valid gender'
+  #                    }
+  ### NO LONGER VALIDATING DUE TO OMNIAUTH ISSUES
 
-  ## OMNIAUTH stuff
+  # OMNIAUTH stuff
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
