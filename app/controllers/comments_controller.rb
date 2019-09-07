@@ -34,4 +34,16 @@ class CommentsController < ApplicationController
                      Post.find_by(id: params[:post_id])
                    end
   end
+
+  def send_notification(commentable)
+    # Would need to rethink comments to get this to work , most likely storing
+    # parent_id in the database
+    # Send notification only if the creator of the post
+    # if the current user
+    recipient = commentable.author if commentable.respond_to? :author
+    recipient = commentable.user if commentable.respond_to? :user
+
+    Notification.create(recipient: recipient, sender: current_user,
+                        action: 'commented on your', notifiable: commentable)
+  end
 end
