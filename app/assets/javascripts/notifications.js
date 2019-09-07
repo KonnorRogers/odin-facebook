@@ -61,14 +61,14 @@ class Notifications {
 
   // populates the dropdown menu
   handleSuccess(data) {
+    this.setCount(data);
+
+    data = data.slice(0, 5);
     const items = data.map(n =>
       `<a class='dropdown-item' href='${n.url}'> ${n.sender.first_name} ${n.sender.last_name} ${n.action} ${n.notifiable.type} </a>`
     );
 
     this.pushStaticLinks(items);
-
-    this.setCount(items);
-
     this.items.innerHTML = items.join("");
   };
 

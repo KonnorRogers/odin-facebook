@@ -13,6 +13,8 @@ class FriendRequest < ApplicationRecord
   validate :not_friends
   validate :not_pending
 
+  default_scope -> { order(created_at: :desc) }
+
   private
 
   def not_self
@@ -31,6 +33,6 @@ class FriendRequest < ApplicationRecord
 
   def send_notification
     Notification.create(recipient: friend, sender: user,
-                        action: 'sent you', notifiable: self)
+                        action: 'sent you a', notifiable: self)
   end
 end

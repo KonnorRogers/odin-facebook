@@ -4,11 +4,14 @@ class LikesController < ApplicationController
   before_action :set_post
 
   def create
-    @post.likes.find_or_create_by(user_id: current_user.id)
+    @post.likes.find_or_create_by(user: current_user)
 
-    # Send notification
-    Notification.create(recipient: @post.author, sender: current_user,
-                        action: 'liked', notifiable: @post)
+    # Send notification only if the creator of the post
+    # if the current user
+    if @post.author != current_user
+      Notification.create(recipient: @post.author, sender: current_user,
+                          action: 'liked your', notifiable: @post)
+    end
 
     respond_to do |fmt|
       fmt.html { redirect_back(fallback_location: root_url) }
