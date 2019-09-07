@@ -29,9 +29,10 @@ class User < ApplicationRecord
   GENDERS = %i[male female other].freeze
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  #  :lockable, :timeoutable, :trackable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
+         :confirmable,
          authentication_keys: [:email]
 
   devise :omniauthable, omniauth_providers: %i[facebook]
