@@ -32,7 +32,6 @@ class User < ApplicationRecord
   #  :lockable, :timeoutable, :trackable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable,
          authentication_keys: [:email]
 
   devise :omniauthable, omniauth_providers: %i[facebook]
