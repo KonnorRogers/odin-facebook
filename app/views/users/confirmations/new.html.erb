@@ -13,4 +13,10 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= link_to user_facebook_omniauth_authorize_path,
+  class: "login-facebook-link" do %>
+  Sign in with Facebook
+  <span class="facebook-icon"><%= fa_icon "facebook-square" %></span>
+<% end %>
+
+<%= render "users/shared/links" %>
