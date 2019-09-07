@@ -8,6 +8,8 @@ class NotificationsController < ApplicationController
 
     @unread_notifications = @notifications.unread
 
+    @notifications = @notifications.paginate(page: params[:page], per_page: 20)
+
     respond_to do |format|
       format.html { @notifications }
       format.json { @unread_notifications }

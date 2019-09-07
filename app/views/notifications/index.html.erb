@@ -1,4 +1,7 @@
 <h2> Notifications </h2>
+
+<%= will_paginate @notifications %>
+
 <% @notifications.each do |n| %>
   <p class="notification">
     <%= link_to n.sender.full_name.titleize,
@@ -10,3 +13,4 @@
   </p>
 <% end %>
 
+<%= will_paginate @notifications %>

@@ -8,10 +8,10 @@ class LikesController < ApplicationController
 
     # Send notification only if the creator of the post
     # if the current user
-    if @post.author != current_user
+    # if @post.author != current_user
       Notification.create(recipient: @post.author, sender: current_user,
                           action: 'liked your', notifiable: @post)
-    end
+    # end
 
     respond_to do |fmt|
       fmt.html { redirect_back(fallback_location: root_url) }
