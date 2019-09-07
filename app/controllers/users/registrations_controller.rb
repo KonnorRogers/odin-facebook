@@ -1,7 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
-    # Sends my own custom email
-    UserMailer.welcome_email(self).deliver_later
+    Devise::Mailer.confirmation_instructions(@user).deliver_later
   end
 end
