@@ -9,6 +9,6 @@ class NotificationsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     sign_in @user
     get notifications_url
-    assert_response :success
+    assert_response :redirect
   end
 end
