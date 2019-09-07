@@ -32,7 +32,6 @@ class User < ApplicationRecord
   #  :lockable, :timeoutable, :trackable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable,
          authentication_keys: [:email]
 
   devise :omniauthable, omniauth_providers: %i[facebook]
@@ -102,10 +101,4 @@ class User < ApplicationRecord
   def likes?(post)
     post.likes.where(user_id: id).any?
   end
-
-  protected
-
-  # def confirmation_required?
-  #   false
-  # end
 end
