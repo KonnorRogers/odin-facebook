@@ -43,7 +43,7 @@ class User < ApplicationRecord
 
   ### NO LONGER VALIDATING DUE TO OMNIAUTH ISSUES
   # validates :birthday, presence: true,
-  #                      age: { too_young: 13, too_old: 120 }
+                       # age: { too_young: 13, too_old: 120 }
 
   # validates :gender, presence: true,
   #                    inclusion: {
@@ -101,5 +101,4 @@ class User < ApplicationRecord
   def likes?(post)
     post.likes.where(user_id: id).any?
   end
-
 end
