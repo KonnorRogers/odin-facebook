@@ -4,7 +4,7 @@
 
 ## What the live app looks like
 
-[!Gif of website navigation](https://thumbs.gfycat.com/PeriodicShadyKomododragon-size_restricted.gif)
+![Gif of website navigation](https://thumbs.gfycat.com/PeriodicShadyKomododragon-size_restricted.gif)
 
 
 ## Getting starting
