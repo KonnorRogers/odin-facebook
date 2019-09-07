@@ -1,5 +1,7 @@
 # README
 
+[Link to live site](https://paramagic-app.herokuapp.com/)
+
 ## What the live app looks like
 
 ## Getting starting
