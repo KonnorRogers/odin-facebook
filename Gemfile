@@ -7,7 +7,7 @@ ruby '2.6.2'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'coffee-rails', '~> 4.2'
-gem 'devise', '~> 4.6' # authentication
+gem 'devise', '~> 4.7' # authentication
 gem 'dotenv-rails', '~> 2.7',
     require: 'dotenv/rails-now',
     groups: %i[test development]
